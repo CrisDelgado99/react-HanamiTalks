@@ -1,0 +1,23 @@
+@import "ppal.scss";
+
+.card--simple.grammar{
+    border-color: $ppal-color;
+    box-shadow: 0 0.2rem 0 0 $ppal-color;
+    background-color: $ppal-color--light;
+}
+
+.container--grammarUse{
+    padding: 1rem 1.5rem;
+}
+
+h1.title--grammar {
+    font-weight: 400;
+    text-align: center;
+
+    align-self: center;
+    font-size: 32pt;
+}
+
+h2.title--grammarUse{
+    font-size: 18pt;
+}

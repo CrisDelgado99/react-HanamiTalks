@@ -1,0 +1,371 @@
+/*This sass file contains the principal styles that are shared by all the files in this webpage.*/
+/*Fonts*/
+@font-face {
+  font-family: "Roboto";
+  src: url("./../fonts/RobotoSlab-Regular.ttf");
+}
+@font-face {
+  font-family: "Gagalin";
+  src: url("./../fonts/Gagalin-Regular.otf");
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #262626;
+  width: 100%;
+  font-size: 62.5%;
+  background-image: url("./../imgs/hanami.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  background-color: rgba(240, 240, 240, 0.6980392157);
+  padding: 1rem 10rem;
+  min-height: calc(100vh - 12rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+main.auth {
+  min-height: calc(100vh - 6rem);
+}
+
+footer, header {
+  background-color: #262626;
+  color: #F0F0F0;
+  height: 6rem;
+}
+
+.header--simple {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header--with-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.header--with-nav nav {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  height: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #F34027;
+  border-radius: 0.5rem;
+}
+.header--with-nav nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  position: relative;
+}
+.header--with-nav nav ul li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
+  list-style: none;
+  width: 6rem;
+  height: 2rem;
+  text-align: center;
+  border: solid #262626 0.1rem;
+  box-shadow: 0 0.4rem 0 0 #262626;
+  border-radius: 0.3rem;
+  background-color: #F34027;
+  position: relative;
+  bottom: 0.1rem;
+  transition: 1s all;
+}
+.header--with-nav nav ul li:hover {
+  background-color: #F38CB2;
+  color: #262626;
+  cursor: pointer;
+}
+.header--with-nav nav ul li.nav--current {
+  background-color: #F38CB2;
+  color: #262626;
+}
+.header--with-nav nav ul li.nav--current .navLink {
+  color: #262626;
+}
+.header--with-nav nav ul .navLink {
+  text-decoration: none;
+  color: #F0F0F0;
+  transition: 1s all;
+}
+.header--with-nav nav ul .navLink:hover {
+  color: #262626;
+}
+.header--with-nav .logo, .header--with-nav .logo label {
+  font-size: 2rem;
+}
+
+p, li, label {
+  font-family: "Roboto";
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, .logo label {
+  font-family: "Gagalin";
+  margin-bottom: 0.6rem;
+  font-weight: lighter;
+}
+
+.logo, .logo label {
+  font-size: 2.5rem;
+  color: #F38CB2;
+  font-weight: lighter;
+}
+
+.logo {
+  color: #F34027;
+}
+
+.card--rotating h1, .card--simple h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+
+.container--row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.card--simple {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #262626 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #262626;
+  border-radius: 0.3rem;
+  width: 100%;
+  background-color: #F0F0F0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--rotating {
+  position: relative;
+}
+
+.card--full {
+  height: 100%;
+}
+
+.card--full__front {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #F34027 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F34027;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background: linear-gradient(to bottom left, #FED5E1 2rem, #FBC4BC 0);
+  position: relative;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+  transition: transform 2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--rotating.rotated .card--full__back {
+  transform: rotateY(0deg);
+}
+
+.card--rotating.rotated .card--full__front {
+  transform: rotateY(180deg);
+}
+
+.card--full__back {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #F38CB2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F38CB2;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background: linear-gradient(to bottom left, #FBC4BC 2rem, #FED5E1 0);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+  transition: transform 2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card--rotating:hover svg {
+  transform: rotate(20deg);
+  transform: scale(1.2);
+}
+
+.card--folded:hover {
+  cursor: pointer;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1; /* Maintain opacity until nearly the end */
+  }
+  100% {
+    opacity: 0; /* Change opacity at the end */
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+div.cornerSvg {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  transform: rotate(20deg);
+}
+
+.cornerSvg {
+  height: 1.5rem !important;
+  width: 1.5rem !important;
+}
+
+.cornerSvg.dispNone svg {
+  opacity: 0;
+  animation: fadeOut 0.5s ease-in forwards;
+}
+
+.cornerSvg.dispNotNone svg {
+  animation: fadeIn 1.2s ease-in forwards;
+}
+
+.container--grid {
+  display: grid;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  row-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.container--grid div {
+  width: 20rem;
+}
+
+.link--goBack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: absolute;
+  right: 1rem;
+}
+.link--goBack svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.link--goBack p {
+  line-height: 2;
+  font-size: 1.2rem;
+  color: #262626;
+}
+
+.card--simple.list {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #F34027 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F34027;
+  border-radius: 0.3rem;
+  background-color: #FBC4BC;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card--simple.list .buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+.card--simple.list .buttons .check {
+  border: 0.2rem #262626 solid;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  background-color: rgba(240, 240, 240, 0.6980392157);
+}
+.card--simple.list .buttons .check svg {
+  color: green;
+  height: 2rem;
+  width: 2rem;
+}
+
+.buttons svg {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.card--simple.list.activated .lock {
+  display: none;
+}
+.card--simple.list.activated .lock svg {
+  display: none;
+}
+
+.card--simple.list.deactivated {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #FBC4BC 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #FBC4BC;
+  border-radius: 0.3rem;
+  background-color: #f9e4e0;
+  padding: 0.5rem 2.5rem;
+}
+.card--simple.list.deactivated .buttons .check, .card--simple.list.deactivated .toggle {
+  display: none;
+}
+.card--simple.list.deactivated .buttons .check svg, .card--simple.list.deactivated .toggle svg {
+  display: none;
+}
+
+.listLink {
+  width: 100%;
+  color: #262626;
+  text-decoration: none;
+}
+
+.dispNone {
+  display: none;
+}/*# sourceMappingURL=list.css.map */

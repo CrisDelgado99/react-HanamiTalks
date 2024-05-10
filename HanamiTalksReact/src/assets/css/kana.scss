@@ -1,0 +1,44 @@
+@import './ppal.scss';
+
+table{
+    border-collapse: collapse;
+}
+
+table td{
+    position: relative;
+    align-self: center;
+    font-family: 'Gagalin';
+    font-weight: 400;
+    font-size: 1rem;
+    background-color: #f38cb2b1;
+    width: 2rem;
+    height: 2rem;
+    border: #262626 solid 0.1rem;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+table td .sound-div{
+    font-family: 'Roboto';
+    text-transform: capitalize;
+    background-color: $secondary-color--light;
+    position: absolute;
+    top: 0.01rem;
+    left: 0.01rem;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    opacity: 0%;
+
+    transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+}
+
+table td:hover .sound-div{
+    opacity: 100%;
+}

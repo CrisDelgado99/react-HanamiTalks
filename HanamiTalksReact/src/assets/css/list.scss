@@ -1,0 +1,74 @@
+@import 'ppal.scss';
+
+.card--simple.list{
+    @include card($ppal-color);
+    background-color: $ppal-color--light;
+    @include disp-flex-row; 
+
+    align-items: center;
+    justify-content: space-between;
+
+    .buttons{
+        @include disp-flex-row;
+        gap: 0.5rem;
+        align-items: center;
+
+        .check{
+            border: 0.2rem $black solid;
+            height: 2rem;
+            width: 2rem;
+            @include disp-flex-column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.2rem;
+            background-color: $white-transparent;
+
+            svg{
+                color: green;
+                height: 2rem;
+                width: 2rem;
+            }
+            
+        }
+    }
+}
+
+
+.buttons svg{
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.card--simple.list.activated{
+    .lock{
+        display: none;
+        svg{
+            display: none;
+        }
+    }
+}
+
+.card--simple.list.deactivated{
+    @include card($ppal-color--light);
+    background-color: $ppal-color--lighter;
+    padding: 0.5rem 2.5rem;
+
+    .buttons .check, .toggle{
+        display: none;
+
+        svg{
+            display: none;
+        }
+    }
+}
+
+.listLink{
+    width: 100%;
+
+    color: $black;
+    text-decoration: none;
+}
+
+.dispNone{
+    display: none;
+}
