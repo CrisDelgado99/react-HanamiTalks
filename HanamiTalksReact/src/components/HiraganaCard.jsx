@@ -18,7 +18,7 @@ export default function HiraganaCard({
         <div className={cardRotated ? "card--rotating hiragana rotated" : "card--rotating hiragana"} onClick={handleClick}>
             <div className="card--full">
                 <div className="card--folded card--full__front">
-                    <h1>Hiragana/ひらがな</h1>
+                    <h1>Hiragana/<label className="japanese">ひらがな</label></h1>
                     <p>
                         The hiragana writing system has its roots in the Heian
                         period (794-1185) in Japan. Although an exact date

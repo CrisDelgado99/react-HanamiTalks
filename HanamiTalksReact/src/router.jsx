@@ -3,18 +3,23 @@ import Layout from './layouts/Layout';
 import AuthLayout from './layouts/AuthLayout';
 import LoginRegister from './views/LoginRegister';
 import Kanji from './views/Kanji';
-import KanjiTopic from './views/kanjiTopic';
+import KanjiTopic from './views/KanjiTopic';
 import Kana from './views/Kana';
 import Vocabulary from './views/Vocabulary';
 import VocabularyTopic from './views/VocabularyTopic';
 import Grammar from './views/Grammar';
 import GrammarTopic from './views/GrammarTopic';
+import Index from './views/Index';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Layout />,
         children: [
+            {
+                path: '/',
+                element: <Index />
+            },
             {
                 path: '/kanji',
                 element: <Kanji />
@@ -25,7 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/kanjiTopic',
-                element: <KanjiTopic />
+                element: <KanjiTopic />,
             },
             {
                 path: '/vocabulary',

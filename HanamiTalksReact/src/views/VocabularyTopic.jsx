@@ -1,28 +1,46 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useHanamiTalks from "../hooks/useHanamiTalks";
-import { vocabulary as vocabularyList } from "./../assets/data/vocabulary";
+import useSWR from "swr";
+import axiosClient from "../config/axios";
 import "./../assets/css/vocabulary.css";
 
 export default function VocabularyTopic() {
     const { currentVocabularyTopic } = useHanamiTalks();
 
-    let arrCurrentVocabulary = [];
-    arrCurrentVocabulary = vocabularyList.filter(
-        (item) =>
-            item.topicTitle.toLowerCase() ===
-            currentVocabularyTopic.toLowerCase()
+    // State for controlling card rotation
+    const [vocabularyIsRotated, setVocabularyIsRotated] = useState([]);
+
+    // Using useSWR to fetch data
+    const { data, error, isLoading } = useSWR(
+        "/api/vocabularies/topic/" + currentVocabularyTopic,
+        () => axiosClient("/api/vocabularies/topic/" + currentVocabularyTopic).then((response) => response.data.data)
     );
+
+    // Log data and error for debugging
+    console.log(data);
+    console.log("THIS IS THE SWR ERROR: " + error);
+
+    // Update state when data changes
+    useEffect(() => {
+        if (data) {
+            setVocabularyIsRotated(
+                data.map((item, index) => ({
+                    index,
+                    rotated: false,
+                }))
+            );
+        }
+    }, [data]);
+
+    // Handle loading, error, and data states
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+
+    // Assuming data is an array of topic titles with levels
+    const arrCurrentVocabulary = data;
 
     console.log(arrCurrentVocabulary);
-
-    const [vocabularyIsRotated, setVocabularyIsRotated] = useState(
-        arrCurrentVocabulary.map((item, index) => ({
-            index,
-            rotated: false,
-        }))
-    );
 
     const toggleRotation = (index) => {
         setVocabularyIsRotated((prevState) =>
@@ -33,7 +51,7 @@ export default function VocabularyTopic() {
     };
 
     const printVocabulary = (item, index) => {
-        const isRotated = vocabularyIsRotated[index].rotated;
+        const isRotated = vocabularyIsRotated[index]?.rotated || false;
         return (
             <div
                 key={index}
@@ -78,6 +96,11 @@ export default function VocabularyTopic() {
                             <tr>
                                 <td>
                                     <p>Kana: {item.kana}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>Romaji: {item.romaji}</p>
                                 </td>
                             </tr>
                             <tr>

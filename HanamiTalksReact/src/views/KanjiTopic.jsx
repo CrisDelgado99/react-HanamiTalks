@@ -1,25 +1,50 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useHanamiTalks from "../hooks/useHanamiTalks";
-import { kanji as kanjiList } from "./../assets/data/kanji";
 import "./../assets/css/kanji.css";
+import useSWR from "swr";
+import axiosClient from "../config/axios";
+
+
 
 export default function KanjiTopic() {
     const { currentKanjiTopic } = useHanamiTalks();
 
-    let arrCurrentKanji = [];
-    arrCurrentKanji = kanjiList.filter(
-        (item) =>
-            item.topicTitle.toLowerCase() === currentKanjiTopic.toLowerCase()
+
+// State for controlling card rotation
+    const [kanjiIsRotated, setKanjiIsRotated] = useState([]);
+
+    // Using useSWR to fetch data
+    const { data, error, isLoading } = useSWR(
+        "/api/kanjis/topic/" + currentKanjiTopic,
+        () => axiosClient("/api/kanjis/topic/" + currentKanjiTopic).then((response) => response.data.data)
     );
 
-    const [kanjiIsRotated, setKanjiIsRotated] = useState(
-        arrCurrentKanji.map((item, index) => ({
-            index,
-            rotated: false,
-        }))
-    );
+    // Log data and error for debugging
+    console.log(data);
+    console.log("THIS IS THE SWR ERROR: " + error);
+
+    // Update state when data changes
+    useEffect(() => {
+        if (data) {
+            setKanjiIsRotated(
+                data.map((item, index) => ({
+                    index,
+                    rotated: false,
+                }))
+            );
+        }
+    }, [data]);
+
+    // Handle loading, error, and data states
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+
+    // Assuming data is an array of topic titles with levels
+    const arrCurrentKanji = data;
+
+    console.log(arrCurrentKanji);
 
     const toggleRotation = (index) => {
         setKanjiIsRotated((prevState) =>
@@ -30,7 +55,7 @@ export default function KanjiTopic() {
     };
 
     const printKanji = (item, index) => {
-        const isRotated = kanjiIsRotated[index].rotated;
+        const isRotated = kanjiIsRotated[index]?.rotated
         return (
             <div
                 key={index}
@@ -43,8 +68,12 @@ export default function KanjiTopic() {
             >
                 <div className="card--full">
                     <div className="card--folded card--full__front">
-                        <h1 className="kanjiSymboL--front">{item.symbol}</h1>
+                        <h1 className="kanjiSymboL--front japanese">{item.symbol}</h1>
                         <p className="translation--front">{item.translation}</p>
+
+                        <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21"><path fill="none" stroke="#262626" stroke-linecap="round" stroke-linejoin="round" d="M17 4a2.121 2.121 0 0 1 0 3l-9.5 9.5l-4 1l1-3.944l9.504-9.552a2.116 2.116 0 0 1 2.864-.125zm-1.5 2.5l1 1"/></svg>
+                        </div>
 
                         <div className="cornerSvg">
                             <svg
@@ -69,17 +98,17 @@ export default function KanjiTopic() {
                         <table className="table--kanji">
                             <tr>
                                 <td rowSpan={2}>
-                                    <h1 className="kanjiSymbol--back">
+                                    <h1 className="kanjiSymbol--back japanese">
                                         {item.symbol}
                                     </h1>
                                 </td>
                                 <td>
-                                    <p>Onyomi: {item.onyomi}</p>
+                                    <p>Onyomi: <label className="japanese">{item.onyomi}</label></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Kunyomi: {item.kunyomi}</p>
+                                    <p>Kunyomi: <label className="japanese">{item.kunyomi}</label></p>
                                 </td>
                             </tr>
                             <tr>

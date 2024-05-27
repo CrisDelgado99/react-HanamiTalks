@@ -5,13 +5,19 @@
     
 }
 
-.logReg .card--full__front{
-    gap: 1rem;
+.logReg .card--full__front, .logReg .card--full__back{
     width: 20rem;
 }
 
-.logReg .card--full__back{
-    width: 20rem;
+.logReg .card--full__front form{
+    @include disp-flex-column();
+    gap: 1rem;
+    width: 15rem;
+}
+
+.logReg .card--full__back form{
+    @include disp-flex-column();
+    width: 15rem;
     gap: 1rem;
 }
 
@@ -120,7 +126,7 @@ input[type=text], input[type=password]{
     background-color: $secondary-color;
 }
 
-input[type=button]{
+input[type=button], input[type=submit]{
     margin: 1rem 2rem;
     @include button();
     padding: 0.5rem;
@@ -129,4 +135,38 @@ input[type=button]{
     cursor: pointer;
 }
 
+.modal-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $black-transparent;
+
+    @include disp-flex-column();
+    align-items: center;
+    justify-content: center;
+}
+
+.modal--errors{
+    @include card-simple(25rem, $secondary-color, $secondary-color--light);
+    @include disp-flex-column();
+    align-items: stretch;
+
+    p{
+        padding: 1rem;
+        text-align: center;
+        background-color: $ppal-color--light;
+        border: 0.1rem solid $black;
+    }
+
+    input{
+        background-color: $secondary-color;
+        transition: all 1s;
+    }
+
+    input:hover{
+        background-color: $ppal-color;
+    }
+}
 

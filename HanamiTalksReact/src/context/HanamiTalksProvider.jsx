@@ -1,12 +1,14 @@
 import { createContext, useState, useEffect } from "react";
+import axiosClient from "../config/axios";
+
 
 const HanamiTalksContext = createContext();
 const HanamiTalksProvider = ({ children }) => {
     //STATES
     const [isAdmin, setIsAdmin] = useState(true);
-    const [currentKanjiTopic, setCurrentKanjiTopic] = useState("Numbers");
-    const [currentVocabularyTopic, setCurrentVocabularyTopic] = useState("People");
-    const [currentGrammarTopic, setCurrentGrammarTopic] = useState("の particle");
+    const [currentKanjiTopic, setCurrentKanjiTopic] = useState("");
+    const [currentVocabularyTopic, setCurrentVocabularyTopic] = useState("");
+    const [currentGrammarTopic, setCurrentGrammarTopic] = useState("");
 
     //VARIABLES
     const [userLevel, setUserLevel] = useState(3);
@@ -14,18 +16,6 @@ const HanamiTalksProvider = ({ children }) => {
     //FUNCTIONS
     //This function takes the topic titles to make the main menu
     //of: kanji, vocabulary, grammar.
-    const getUniqueTopicTitles = (arrayOfElements) => {
-        const uniqueTopicTitles = [];
-    
-        arrayOfElements.forEach((element) => {
-            const existingTitleIndex = uniqueTopicTitles.findIndex(item => item.title === element.topicTitle);
-            if (existingTitleIndex === -1) {
-                uniqueTopicTitles.push({ 'title': element.topicTitle, 'level': element.level });
-            }
-        });
-    
-        return uniqueTopicTitles;
-    };
 
     const printListElement = (item, index) => {
         return (
@@ -38,7 +28,7 @@ const HanamiTalksProvider = ({ children }) => {
                 }
             >
                 <ul>
-                    <li>{item.title}</li>
+                    <li>{item.topicTitle}</li>
                 </ul>
                 <div className="buttons">
                     <div className="lock">
@@ -92,9 +82,23 @@ const HanamiTalksProvider = ({ children }) => {
         );
     };
 
+    //AXIOS FUNCTIONS----------------------------------------------------------------------------
+    const getKanjisByTopic = async (topicTitle) => {
+        try{
+            const response = await axiosClient('http://localhost/api/kanjis/topic/' + topicTitle);
+            console.log(response);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getKanjisByTopic("Numbers");
+    }, [])
+
 
     return (
-        <HanamiTalksContext.Provider value={{ getUniqueTopicTitles, printListElement,userLevel, isAdmin, currentKanjiTopic, setCurrentKanjiTopic, currentVocabularyTopic, currentGrammarTopic }}>
+        <HanamiTalksContext.Provider value={{ printListElement,userLevel, isAdmin, currentKanjiTopic, setCurrentKanjiTopic, currentVocabularyTopic, setCurrentVocabularyTopic, currentGrammarTopic, setCurrentGrammarTopic }}>
             {children}
         </HanamiTalksContext.Provider>
     );

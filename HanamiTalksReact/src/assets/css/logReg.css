@@ -8,6 +8,10 @@
   font-family: "Gagalin";
   src: url("./../fonts/Gagalin-Regular.otf");
 }
+@font-face {
+  font-family: "JapaneseFont";
+  src: url("./../fonts/Hosohuwafont.ttf");
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -141,6 +145,15 @@ h1, h2, h3, h4, h5, .logo label {
   color: #F34027;
 }
 
+.japanese {
+  font-family: "JapaneseFont";
+  font-size: 1.2rem;
+}
+
+h1 .japanese {
+  font-size: 2.5rem;
+}
+
 .card--rotating h1, .card--simple h1 {
   font-size: 2rem;
   line-height: 2.5rem;
@@ -269,8 +282,7 @@ div.cornerSvg {
 
 .container--grid {
   display: grid;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
   row-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -301,13 +313,21 @@ div.cornerSvg {
   height: 25rem;
 }
 
-.logReg .card--full__front {
-  gap: 1rem;
+.logReg .card--full__front, .logReg .card--full__back {
   width: 20rem;
 }
 
-.logReg .card--full__back {
-  width: 20rem;
+.logReg .card--full__front form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 15rem;
+}
+
+.logReg .card--full__back form {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
   gap: 1rem;
 }
 
@@ -418,7 +438,7 @@ input[type=text], input[type=password] {
   background-color: #F38CB2;
 }
 
-input[type=button] {
+input[type=button], input[type=submit] {
   margin: 1rem 2rem;
   border: solid #262626 0.1rem;
   box-shadow: 0 0.4rem 0 0 #262626;
@@ -426,4 +446,45 @@ input[type=button] {
   padding: 0.5rem;
   font-weight: bolder;
   cursor: pointer;
-}/*# sourceMappingURL=logReg.css.map */
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(38, 38, 38, 0.7176470588);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal--errors {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #F38CB2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F38CB2;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background-color: #FED5E1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.modal--errors p {
+  padding: 1rem;
+  text-align: center;
+  background-color: #FBC4BC;
+  border: 0.1rem solid #262626;
+}
+.modal--errors input {
+  background-color: #F38CB2;
+  transition: all 1s;
+}
+.modal--errors input:hover {
+  background-color: #F34027;
+}
+
+/*# sourceMappingURL=logReg.css.map */

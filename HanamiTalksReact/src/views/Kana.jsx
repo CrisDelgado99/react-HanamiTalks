@@ -94,7 +94,7 @@ export default function Kana() {
                                 <td key={colIndex}>
                                     {element && (
                                         <>
-                                            {element.kana}
+                                            <p className="japanese">{element.kana}</p>
                                             <div className="sound-div">
                                                 {element.sound}
                                             </div>

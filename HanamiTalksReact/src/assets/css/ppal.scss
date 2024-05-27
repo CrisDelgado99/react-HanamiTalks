@@ -11,6 +11,7 @@ $secondary-color--light: #FED5E1;
 $white: #F0F0F0;
 $white-transparent: #f0f0f0b2;
 $black: #262626;
+$black-transparent: #262626b7;
 
 @mixin card($border-color: $black){
     padding: 1.5rem 2.5rem;
@@ -59,6 +60,11 @@ $black: #262626;
 @font-face {
     font-family: 'Gagalin';
     src: url("./../fonts/Gagalin-Regular.otf");
+}
+
+@font-face {
+    font-family: 'JapaneseFont';
+    src: url("./../fonts/Hosohuwafont.ttf");
 }
 
 *{
@@ -197,6 +203,15 @@ h1, h2, h3, h4, h5, .logo label{
 
 .logo{
     color: $ppal-color;
+}
+
+.japanese{
+    font-family: "JapaneseFont";
+    font-size: 1.2rem;
+}
+
+h1 .japanese{
+    font-size: 2.5rem;
 }
 
 //CARDS------------------------------------------------------------------------------------------------------

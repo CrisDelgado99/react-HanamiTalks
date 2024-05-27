@@ -4,6 +4,8 @@ import useHanamiTalks from "../hooks/useHanamiTalks";
 import { grammar as grammarList } from "./../assets/data/grammar";
 import { Link } from "react-router-dom";
 import "./../assets/css/list.css";
+import useSWR from "swr";
+import axiosClient from "../config/axios";
 
 export default function Grammar() {
     const { getUniqueTopicTitles } = useHanamiTalks();
@@ -13,7 +15,29 @@ export default function Grammar() {
         useHanamiTalks();
 
     const userLevel = 3;
-    const grammarTopicTitles = getUniqueTopicTitles(grammarList);
+        //SWR consult
+    // Fetcher function to get data from API
+    const fetcher = () =>
+        axiosClient("/api/grammars/topicTitles").then(
+            (response) => response.data
+        );
+
+    // Using useSWR to fetch data
+    const { data, error, isLoading } = useSWR(
+        "/api/grammars/topicTitles",
+        fetcher
+    );
+
+    // Log data and error for debugging
+    console.log(data);
+    console.log("THIS IS THE SWR ERROR: " + error);
+
+    // Handle loading, error, and data states
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+
+    // Assuming data is an array of topic titles with levels
+    const grammarTopicTitles = data;
     return (<>
         {isAdmin && <KanjiForm />}
 

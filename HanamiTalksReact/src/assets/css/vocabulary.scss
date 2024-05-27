@@ -1,6 +1,6 @@
 @import "ppal.scss";
 
-h1.word--front {
+.word--front {
     font-weight: 400;
     text-align: center;
     border: 0.1rem solid $ppal-color;
@@ -9,11 +9,13 @@ h1.word--front {
     align-self: center;
     padding: 2rem 2.5rem;
     font-size: 32pt;
+    margin-top: 2rem;
 }
 
 p.translation--front {
     font-size: 1.5rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .table--vocabulary {

@@ -24,7 +24,7 @@ export default function KatakanaCard({
         >
             <div className="card--full">
                 <div className="card--folded card--full__front">
-                    <h1>Katakana/カタカナ</h1>
+                    <h1>Katakana/<label className="japanese">カタカナ</label></h1>
                     <p>
                         Katakana also originated around the same period as
                         hiragana, but its development was influenced by Buddhist

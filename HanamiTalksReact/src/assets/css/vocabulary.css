@@ -269,8 +269,7 @@ div.cornerSvg {
 
 .container--grid {
   display: grid;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
   row-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -297,7 +296,7 @@ div.cornerSvg {
   color: #262626;
 }
 
-h1.word--front {
+.word--front {
   font-weight: 400;
   text-align: center;
   border: 0.1rem solid #F34027;
@@ -305,11 +304,13 @@ h1.word--front {
   align-self: center;
   padding: 2rem 2.5rem;
   font-size: 32pt;
+  margin-top: 2rem;
 }
 
 p.translation--front {
   font-size: 1.5rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .table--vocabulary h1 {
@@ -322,4 +323,6 @@ p.translation--front {
 
 .title--vocabularyTopic {
   font-size: 32pt;
-}/*# sourceMappingURL=vocabulary.css.map */
+}
+
+/*# sourceMappingURL=vocabulary.css.map */

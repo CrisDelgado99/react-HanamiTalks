@@ -8,6 +8,10 @@
   font-family: "Gagalin";
   src: url("./../fonts/Gagalin-Regular.otf");
 }
+@font-face {
+  font-family: "JapaneseFont";
+  src: url("./../fonts/Hosohuwafont.ttf");
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -139,6 +143,15 @@ h1, h2, h3, h4, h5, .logo label {
 
 .logo {
   color: #F34027;
+}
+
+.japanese {
+  font-family: "JapaneseFont";
+  font-size: 1.2rem;
+}
+
+h1 .japanese {
+  font-size: 2.5rem;
 }
 
 .card--rotating h1, .card--simple h1 {
