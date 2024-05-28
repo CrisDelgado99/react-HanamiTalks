@@ -2,12 +2,17 @@ import React from "react";
 import { createRef, useState } from "react";
 import axiosClient from "../config/axios";
 import ReactDOM from "react-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Login() {
     const nameRef = createRef();
     const passwordRef = createRef();
 
     const [errors, setErrors] = useState([]);
+    const { login } = useAuth({
+        middleware:'guest',
+        url: '/'
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,16 +22,7 @@ export default function Login() {
             password: passwordRef.current.value,
         };
 
-        try {
-            const response = await axiosClient.post(
-                "api/login",
-                existingUserData
-            );
-            console.log(response);
-        } catch (error) {
-            //console.log(error);
-            setErrors(["Incorrect username or password"]);
-        }
+        login(existingUserData, setErrors)
     };
 
     return (

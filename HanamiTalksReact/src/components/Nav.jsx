@@ -1,8 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Nav({ location }) {
     console.log(location.pathname);
+
+    const { logout } = useAuth({middleware: 'auth'});
+
+    const handleLogout = (e) => {
+        e.preventDefault(); 
+        logout(); 
+    }
+
     return (
         <nav>
             <ul>
@@ -55,7 +64,7 @@ export default function Nav({ location }) {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className="navLink" to="/auth/loginRegister">
+                    <NavLink className="navLink" onClick={handleLogout}>
                         Exit
                     </NavLink>
                 </li>

@@ -1,6 +1,7 @@
 import React from "react";
 import { createRef, useState } from "react";
 import axiosClient from "../config/axios";
+import { useAuth } from "../hooks/useAuth";
 import ReactDOM from "react-dom";
 
 export default function Register() {
@@ -10,6 +11,10 @@ export default function Register() {
     const repeatPasswordRef = createRef();
 
     const [errors, setErrors] = useState([]);
+    const { register } = useAuth({
+        middleware: 'guest',
+        url: '/'
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,18 +35,7 @@ export default function Register() {
             password_confirmation: repeatPasswordRef.current.value,
         };
 
-        try {
-            const response = await axiosClient.post(
-                "api/register",
-                newUserData
-            );
-            console.log(response.data.access_token);
-            localStorage.setItem("AUTH_TOKEN", response.data.access_token);
-            setErrors([]);
-        } catch (error) {
-            //console.log(error);
-            setErrors(Object.values(error.response.data.errors));
-        }
+        register(newUserData, setErrors);
     };
 
     return (

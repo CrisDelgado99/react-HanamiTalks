@@ -2,10 +2,15 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import { useLocation } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Layout() {
 
     const location = useLocation();
+    const {user, error} = useAuth({middleware: 'auth'});
+
+    console.log(user, error);
+    // console.log(middleware);
 
     return (
         <>

@@ -17,7 +17,7 @@ export default function KanjiTopic() {
 
     // Using useSWR to fetch data
     const { data, error, isLoading } = useSWR(
-        "/api/kanjis/topic/" + currentKanjiTopic,
+        "/api/kanjis/topic/" + currentKanjiTopic, 
         () => axiosClient("/api/kanjis/topic/" + currentKanjiTopic).then((response) => response.data.data)
     );
 
