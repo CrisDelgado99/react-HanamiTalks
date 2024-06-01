@@ -58,22 +58,21 @@ export const useAuth = ({middleware, url}) => {
                     Authorization: `Bearer ${token}`
                 }
             })
+            navigate('/');
+            localStorage.removeItem('AUTH_TOKEN');
+            await mutate(null, false);
         }catch(error){
             throw new Error(error?.response?.data?.errors);
         }
     }
 
     useEffect(() => {
-        if(middleware === 'guest' && url && user){
+        if (middleware === 'guest' && url && user) {
             navigate(url, { replace: true });
-        }
-        if(middleware === 'auth' && error){
+        } else if (middleware === 'auth' && !user) {
             navigate('/auth/loginRegister', { replace: true });
         }
-    }, [user, error])
-
-    console.log(user)
-    console.log(middleware)
+    }, [user, error]);
 
     return{
         login, register, logout, user, error

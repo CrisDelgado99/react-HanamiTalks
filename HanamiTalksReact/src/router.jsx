@@ -10,6 +10,7 @@ import VocabularyTopic from './views/VocabularyTopic';
 import Grammar from './views/Grammar';
 import GrammarTopic from './views/GrammarTopic';
 import Index from './views/Index';
+import Notebook from './views/Notebook';
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path: '/grammarTopic',
                 element: <GrammarTopic />
+            },
+            {
+                path: '/notebook',
+                element: <Notebook />
             }
         ]
     },

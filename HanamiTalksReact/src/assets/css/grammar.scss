@@ -1,13 +1,19 @@
 @import "ppal.scss";
 
 .card--simple.grammar{
+    @include card-simple(60%, $ppal-color, $ppal-color--light);
     border-color: $ppal-color;
     box-shadow: 0 0.2rem 0 0 $ppal-color;
     background-color: $ppal-color--light;
 }
 
+.card--simple.grammar .notebook--add, .card--simple.grammar .notebook--remove{
+    margin-top: 1.6rem;
+    cursor: pointer;
+}
+
 .container--grammarUse{
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.6rem;
 }
 
 h1.title--grammar {

@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axiosClient from "../config/axios";
 
-
 const HanamiTalksContext = createContext();
 const HanamiTalksProvider = ({ children }) => {
     //STATES
@@ -16,8 +15,12 @@ const HanamiTalksProvider = ({ children }) => {
     //FUNCTIONS
     //This function takes the topic titles to make the main menu
     //of: kanji, vocabulary, grammar.
+    const handleClickCheckbox = (e) => {
+        //e.stopPropagation();
+    }
 
-    const printListElement = (item, index) => {
+    const printListElement = (item, index, userLvl) => {
+        setUserLevel(userLvl);
         return (
             <div
                 key={index}
@@ -61,7 +64,18 @@ const HanamiTalksProvider = ({ children }) => {
                             />
                         </svg>
                     </div>
-                    <div className="check">
+                    <div
+                        className={
+                            userLevel === item.level
+                                ? "check check--transparent"
+                                : "check"
+                        }
+                        onClick={
+                            userLevel === item.level
+                                ? (e) => handleClickCheckbox(e)
+                                : null
+                        }
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -82,23 +96,20 @@ const HanamiTalksProvider = ({ children }) => {
         );
     };
 
-    //AXIOS FUNCTIONS----------------------------------------------------------------------------
-    const getKanjisByTopic = async (topicTitle) => {
-        try{
-            const response = await axiosClient('http://localhost/api/kanjis/topic/' + topicTitle);
-            console.log(response);
-        }catch(error){
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getKanjisByTopic("Numbers");
-    }, [])
-
-
     return (
-        <HanamiTalksContext.Provider value={{ printListElement,userLevel, isAdmin, currentKanjiTopic, setCurrentKanjiTopic, currentVocabularyTopic, setCurrentVocabularyTopic, currentGrammarTopic, setCurrentGrammarTopic }}>
+        <HanamiTalksContext.Provider
+            value={{
+                printListElement,
+                userLevel,
+                isAdmin,
+                currentKanjiTopic,
+                setCurrentKanjiTopic,
+                currentVocabularyTopic,
+                setCurrentVocabularyTopic,
+                currentGrammarTopic,
+                setCurrentGrammarTopic,
+            }}
+        >
             {children}
         </HanamiTalksContext.Provider>
     );

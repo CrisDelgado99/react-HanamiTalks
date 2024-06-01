@@ -251,12 +251,12 @@ h1 .japanese {
   background-color: #00a876;
 }
 
-.card--rotating:hover .cornerSvg > svg.corner {
+.card--rotating:hover .cornerSvg > .corner {
   transform: rotate(20deg);
   transform: scale(1.2);
 }
 
-.card--rotating:hover .notebook--add svg.pen {
+.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
   transform: none;
 }
 
@@ -264,7 +264,7 @@ h1 .japanese {
   background-color: #F38CB2;
 }
 .notebook--add:hover svg.pen, .notebook--remove:hover svg.pen {
-  transform: scale(1.2);
+  transform: scale(1.2) !important;
 }
 
 .card--folded:hover {
@@ -340,4 +340,28 @@ div.cornerSvg {
   color: #262626;
 }
 
-/*# sourceMappingURL=ppal.css.map */
+.card--item-form {
+  padding: 1.5rem 2.5rem;
+  text-align: justify;
+  border: solid #00a876 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #00a876;
+  border-radius: 0.3rem;
+  width: 45%;
+  background-color: #b0e4d5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card--item-form .item-form__div--input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem 0rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.card--item-form .item-form__div--input input {
+  padding: 0.2rem;
+}
+
+/*# sourceMappingURL=itemForm.css.map */

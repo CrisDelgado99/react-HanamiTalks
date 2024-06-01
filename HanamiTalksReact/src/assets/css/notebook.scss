@@ -1,0 +1,122 @@
+@import "./ppal.scss";
+
+.card--notebook {
+    @include card-simple(80%, $grey, $white);
+    @include disp-flex-column();
+
+    align-items: baseline;
+    background-image: linear-gradient(
+            0deg,
+            transparent 24%,
+            $grey--light 25%,
+            $grey--light 26%,
+            transparent 27%,
+            transparent 74%,
+            $grey--light 75%,
+            $grey--light 76%,
+            transparent 77%,
+            transparent
+        ),
+        linear-gradient(
+            90deg,
+            transparent 24%,
+            $grey--light 25%,
+            $grey--light 26%,
+            transparent 27%,
+            transparent 74%,
+            $grey--light 75%,
+            $grey--light 76%,
+            transparent 77%,
+            transparent
+        );
+    background-size: 2rem 2rem;
+
+    padding: 3rem 8rem;
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        align-self: center;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+
+        label {
+            font-size: 1.6rem;
+        }
+    }
+
+    div {
+        margin-top: 1.6rem;
+    }
+}
+
+.card--notebook__item {
+    margin: 2rem 1.6rem;
+
+    li {
+        list-style: none;
+        margin-left: 1rem;
+    }
+}
+
+.message--empty{
+    text-align: center;
+    align-self: center;
+    margin-top: 2rem;
+}
+
+.mark {
+    margin: 0 -0.4rem;
+    padding: 0.1rem 0.6rem;
+    border-radius: 0.8rem 0.3rem;
+
+    -webkit-box-decoration-break: clone;
+    -moz-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.h3--kanji {
+    background-image: linear-gradient(
+        to right,
+        $secondary-color--moreTransparent,
+        $secondary-color--transparent 4%,
+        $secondary-color--moreTransparent
+    );
+}
+
+.h3--vocabulary {
+    background-image: linear-gradient(
+        to right,
+        $ppal-color--moreTransparent,
+        $ppal-color--transparent 4%,
+        $ppal-color--moreTransparent
+    );
+}
+
+.h3--grammar, .h2--grammar {
+    background-image: linear-gradient(
+        to right,
+        $tertiary-color--moreTransparent,
+        $tertiary-color--transparent 4%,
+        $tertiary-color--moreTransparent
+    );
+}
+
+.h2--grammar{
+    padding: 0.1rem;
+    padding-left: 2rem;
+}
+
+.list--grammarUses{
+    padding-left: 4rem;
+    padding-top: 1rem;
+
+    li{
+        padding-top: 0.2rem;
+    }
+}

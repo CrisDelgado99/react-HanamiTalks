@@ -7,8 +7,9 @@ import "./assets/css/ppal.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
+        
         <HanamiTalksProvider>
-            <RouterProvider router={router} />
+        <RouterProvider router={router} />
         </HanamiTalksProvider>
     </React.StrictMode>
 );

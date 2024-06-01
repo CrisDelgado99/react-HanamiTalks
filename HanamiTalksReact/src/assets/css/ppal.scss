@@ -6,8 +6,23 @@
 $ppal-color: #F34027;
 $ppal-color--light: #FBC4BC;
 $ppal-color--lighter: #f9e4e0;
+$ppal-color--transparent: #f33f277e;
+$ppal-color--moreTransparent: #f33f2715;
+
+
 $secondary-color: #F38CB2;
 $secondary-color--light: #FED5E1;
+$secondary-color--transparent: #f38cb2af;
+$secondary-color--moreTransparent: #f38cb214;
+
+
+$tertiary-color: #00a876;
+$tertiary-color--light: #b0e4d5;
+$tertiary-color--transparent: #00a8769f;
+$tertiary-color--moreTransparent: #00a87614;
+
+$grey: #8c8c8c;
+$grey--light: #d9d9d9; 
 $white: #F0F0F0;
 $white-transparent: #f0f0f0b2;
 $black: #262626;
@@ -274,9 +289,47 @@ h1 .japanese{
     @include disp-flex-column();
 }
 
-.card--rotating:hover svg{
+.notebook--add, .notebook--remove{
+    border: solid $black 0.1rem;
+    max-width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.2rem;
+    background-color: $white-transparent;
+    position: relative;
+
+    svg{
+        height: 2rem;
+        width: 2rem;
+        position: relative;
+        bottom: 1rem;
+        left: 0.5rem;
+    }
+}
+
+.notebook--remove{
+    background-color: $tertiary-color;
+}
+
+
+//Hover on rotating cards animations
+.card--rotating:hover .cornerSvg > .corner{
     transform: rotate(20deg);
     transform: scale(1.2);
+}
+
+.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
+    transform: none;
+}
+
+.notebook--add:hover, .notebook--remove:hover{
+    background-color: $secondary-color;
+
+    svg.pen{
+        transform: scale(1.2)!important; //I needed to put !important because even though I was
+                                         //using .cornerSvg and .corner, I needed to use transform: none
+                                         //in order to make the svg stay the same scale when the parent
+                                         //element card--rotating was hovered
+    }
 }
 
 .card--folded:hover{
@@ -307,7 +360,6 @@ h1 .japanese{
   }
   
   div.cornerSvg {
-
     position: absolute;
     top: 0.1rem;
     right: 0.1rem;

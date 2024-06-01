@@ -1,0 +1,23 @@
+@import "ppal.scss";
+
+.card--item-form{
+    @include card-simple(45%, $tertiary-color, $tertiary-color--light);
+    @include disp-flex-column();
+
+    align-items: center;
+
+
+    .item-form__div--input{
+        width: 100%;
+        @include disp-flex-row();
+        padding: 0.2rem 0rem;
+
+        justify-content: space-between;
+        align-items: center;
+
+        input{
+            padding: 0.2rem;
+        };
+
+    }
+}

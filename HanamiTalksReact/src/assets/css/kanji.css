@@ -8,6 +8,10 @@
   font-family: "Gagalin";
   src: url("./../fonts/Gagalin-Regular.otf");
 }
+@font-face {
+  font-family: "JapaneseFont";
+  src: url("./../fonts/Hosohuwafont.ttf");
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -141,6 +145,15 @@ h1, h2, h3, h4, h5, .logo label {
   color: #F34027;
 }
 
+.japanese {
+  font-family: "JapaneseFont";
+  font-size: 1.2rem;
+}
+
+h1 .japanese {
+  font-size: 2.5rem;
+}
+
 .card--rotating h1, .card--simple h1 {
   font-size: 2rem;
   line-height: 2.5rem;
@@ -218,9 +231,40 @@ h1, h2, h3, h4, h5, .logo label {
   flex-direction: column;
 }
 
-.card--rotating:hover svg {
+.notebook--add, .notebook--remove {
+  border: solid #262626 0.1rem;
+  max-width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  background-color: rgba(240, 240, 240, 0.6980392157);
+  position: relative;
+}
+.notebook--add svg, .notebook--remove svg {
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+  bottom: 1rem;
+  left: 0.5rem;
+}
+
+.notebook--remove {
+  background-color: #00a876;
+}
+
+.card--rotating:hover .cornerSvg > .corner {
   transform: rotate(20deg);
   transform: scale(1.2);
+}
+
+.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
+  transform: none;
+}
+
+.notebook--add:hover, .notebook--remove:hover {
+  background-color: #F38CB2;
+}
+.notebook--add:hover svg.pen, .notebook--remove:hover svg.pen {
+  transform: scale(1.2) !important;
 }
 
 .card--folded:hover {
@@ -269,8 +313,7 @@ div.cornerSvg {
 
 .container--grid {
   display: grid;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
+  column-gap: 1rem;
   row-gap: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -322,4 +365,6 @@ p.translation--front {
 
 .title--kanjiTopic {
   font-size: 32pt;
-}/*# sourceMappingURL=kanji.css.map */
+}
+
+/*# sourceMappingURL=kanji.css.map */

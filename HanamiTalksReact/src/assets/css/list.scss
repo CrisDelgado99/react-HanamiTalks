@@ -72,3 +72,10 @@
 .dispNone{
     display: none;
 }
+
+.check.check--transparent{
+    svg{
+        opacity: 0;
+    }
+    
+}
