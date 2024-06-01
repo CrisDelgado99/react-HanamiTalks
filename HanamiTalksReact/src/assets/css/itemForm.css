@@ -135,6 +135,10 @@ h1, h2, h3, h4, h5, .logo label {
   font-weight: lighter;
 }
 
+h2 {
+  font-size: 1.4rem;
+}
+
 .logo, .logo label {
   font-size: 2.5rem;
   color: #F38CB2;
@@ -167,7 +171,7 @@ h1 .japanese {
 }
 
 .card--simple {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #262626 0.1rem;
   box-shadow: 0 0.2rem 0 0 #262626;
@@ -187,7 +191,7 @@ h1 .japanese {
 }
 
 .card--full__front {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #F34027 0.1rem;
   box-shadow: 0 0.2rem 0 0 #F34027;
@@ -213,7 +217,7 @@ h1 .japanese {
 }
 
 .card--full__back {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #F38CB2 0.1rem;
   box-shadow: 0 0.2rem 0 0 #F38CB2;
@@ -341,7 +345,7 @@ div.cornerSvg {
 }
 
 .card--item-form {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #00a876 0.1rem;
   box-shadow: 0 0.2rem 0 0 #00a876;
@@ -353,7 +357,7 @@ div.cornerSvg {
   align-items: center;
 }
 .card--item-form .item-form__div--input {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   padding: 0.2rem 0rem;
@@ -361,7 +365,29 @@ div.cornerSvg {
   align-items: center;
 }
 .card--item-form .item-form__div--input input {
+  padding: 0.2rem 0.4rem;
+}
+.card--item-form .item-form__div--topicTitles {
+  border: 0.15rem solid #00a876;
+  margin: 0.6rem;
+  width: 100%;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card--item-form .item-form__div--topicTitles select {
+  background-color: rgba(240, 240, 240, 0.6980392157);
+  border-radius: 0.2rem;
+  border: 0.1rem #262626 solid;
   padding: 0.2rem;
+}
+.card--item-form .item-form__div--topicTitles .item-form__div--newTopic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.6rem;
 }
 
 /*# sourceMappingURL=itemForm.css.map */

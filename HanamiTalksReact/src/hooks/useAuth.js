@@ -46,7 +46,7 @@ export const useAuth = ({middleware, url}) => {
             localStorage.setItem("AUTH_TOKEN", response.data.access_token);
             setErrors([]);
         } catch (error) {
-            //console.log(error);
+            console.log(error);
             setErrors(Object.values(error.response.data.errors));
         }
     }

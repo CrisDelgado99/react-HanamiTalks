@@ -7,6 +7,7 @@ import "./../assets/css/list.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import GrammarForm from "../components/GrammarForm";
 
 export default function Grammar() {
     const { currentGrammarTopic, setCurrentGrammarTopic } =
@@ -151,7 +152,7 @@ export default function Grammar() {
     
     
     return (<>
-        {isAdmin && <KanjiForm />}
+        {isAdmin && <GrammarForm />}
 
         {grammarTopicTitles.map((item, index) =>
             grammarLvl >= item.level ? (

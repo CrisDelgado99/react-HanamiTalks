@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import KanjiForm from "../components/KanjiForm";
 import useHanamiTalks from "../hooks/useHanamiTalks";
 import { Link } from "react-router-dom";
 import "./../assets/css/list.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import VocabularyForm from "../components/VocabularyForm";
 
 export default function Vocabulary() {
     const { currentVocabularyTopic, setCurrentVocabularyTopic } =
@@ -152,7 +152,7 @@ export default function Vocabulary() {
 
     return (
         <>
-            {isAdmin && <KanjiForm />}
+            {isAdmin && <VocabularyForm vocabularyTopicTitles={vocabularyTopicTitles}/>}
 
             {vocabularyTopicTitles.map((item, index) =>
                 vocabLvl >= item.level ? (

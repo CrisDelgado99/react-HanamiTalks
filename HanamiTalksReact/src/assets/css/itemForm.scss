@@ -8,7 +8,7 @@
 
 
     .item-form__div--input{
-        width: 100%;
+        width: 90%;
         @include disp-flex-row();
         padding: 0.2rem 0rem;
 
@@ -16,8 +16,33 @@
         align-items: center;
 
         input{
-            padding: 0.2rem;
+            padding: 0.2rem 0.4rem;
         };
-
     }
+
+    .item-form__div--topicTitles{
+        border: 0.15rem solid $tertiary-color;
+        margin: 0.6rem;
+        width: 100%;
+        border-radius: 0.25rem;
+        padding: 1rem;
+
+        @include disp-flex-column();
+        align-items: center;
+
+        select{
+            background-color: $white-transparent;
+            border-radius: 0.2rem;
+            border: 0.1rem $black solid;
+            padding: 0.2rem;
+        }
+
+        .item-form__div--newTopic{
+            @include disp-flex-column();
+            align-items: center;
+            margin-top: 0.6rem;
+        }
+    }
+
+
 }

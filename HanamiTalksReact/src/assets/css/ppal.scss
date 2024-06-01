@@ -29,7 +29,7 @@ $black: #262626;
 $black-transparent: #262626b7;
 
 @mixin card($border-color: $black){
-    padding: 1.5rem 2.5rem;
+    padding: 1.6rem 2.6rem;
     text-align: justify;
 
     border: solid $border-color 0.1rem;
@@ -208,6 +208,14 @@ h1, h2, h3, h4, h5, .logo label{
     font-family: 'Gagalin';
     margin-bottom: 0.6rem;
     font-weight: lighter;
+}
+
+h1{
+
+}
+
+h2{
+    font-size: 1.4rem;
 }
 
 .logo, .logo label{

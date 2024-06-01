@@ -151,7 +151,7 @@ export default function Kanji() {
 
     return (
         <>
-            {isAdmin && <KanjiForm />}
+            {isAdmin && <KanjiForm kanjiTopicTitles={kanjiTopicTitles}/>}
 
             {kanjiTopicTitles.map((item, index) =>
                 kanjiLvl >= item.level ? (
