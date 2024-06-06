@@ -1,13 +1,12 @@
 @import "ppal.scss";
 
-.card--item-form{
+.card--item-form {
     @include card-simple(50%, $tertiary-color, $tertiary-color--light);
     @include disp-flex-column();
 
     align-items: center;
 
-
-    .item-form__div--input{
+    .item-form__div--input {
         width: 90%;
         @include disp-flex-row();
         padding: 0.2rem 0rem;
@@ -15,13 +14,13 @@
         justify-content: space-between;
         align-items: center;
 
-        input{
+        input {
             padding: 0.2rem 0.4rem;
-            width: 9rem
-        };
+            width: 9rem;
+        }
     }
 
-    .item-form__div--textarea{
+    .item-form__div--textarea {
         width: 90%;
         @include disp-flex-column();
         padding: 0.2rem 0rem;
@@ -29,16 +28,16 @@
         justify-content: stretch;
         align-items: stretch;
 
-        textarea{
+        textarea {
             background-color: $white-transparent;
             border: solid $black 0.1rem;
             border-radius: 0.2rem;
             padding: 0.2rem 0.4rem;
             width: 100%;
-        };
+        }
     }
 
-    .item-form__div--topicTitles{
+    .item-form__div--topicTitles {
         border: 0.15rem solid $tertiary-color;
         margin: 0.6rem;
         width: 100%;
@@ -48,52 +47,90 @@
         @include disp-flex-column();
         align-items: center;
 
-        select{
+        select {
             background-color: $white-transparent;
             border-radius: 0.2rem;
             border: 0.1rem $black solid;
             padding: 0.2rem;
         }
 
-        .item-form__div--newTopic{
+        .item-form__div--newTopic {
             @include disp-flex-column();
             align-items: center;
             margin-top: 0.6rem;
 
-            input{
+            input {
                 padding: 0.2rem 0.4rem;
-                width: 9rem
-            };
+                width: 9rem;
+            }
+        }
+    }
+}
+
+.card--grammar-form {
+    width: 50%;
+
+    .item-form__div--uses {
+        margin: 2rem;
+        padding: 1rem 2rem;
+        width: 85%;
+        border: 0.2rem $tertiary-color solid;
+        border-radius: 0.2rem;
+
+        @include disp-flex-column();
+        align-items: stretch;
+
+        .div--use {
+            h3{
+                text-align: center
+            }
+            @include disp-flex-column();
+            .item-form__div--input {
+                width: 100%;
+                @include disp-flex-row();
+                justify-content: space-between;
+
+                input {
+                    margin: 0;
+                }
+            }
+            .item-form__div--textarea {
+                @include disp-flex-column();
+                width: 100%;
+                textarea {
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            hr{
+                border-top: 0.15rem solid $tertiary-color;
+                margin: 1rem;
+            }
         }
 
+    }
+}
 
+.div--uses__buttons{
+    align-self: center;
+
+    input[type="submit"]{
+        font-size: 1.2rem;
+        width: 3rem;
+        transition: all 0.5s;
     }
 
-
+    input[type="submit"]:hover{
+        cursor: pointer;
+        background-color: $grey--light;
+    }
 }
 
-.card--grammar-form{
-    width: 70%;
-}
-
-.card--grammar-form .item-form__div--input{
-    width: 90%;
-    @include disp-flex-row();
-    padding: 0.2rem 0rem;
-
-    justify-content: space-between;
-    align-items: center;
-
-    input{
-        padding: 0.2rem 0.4rem;
-        width: 9rem
-    };
-}
-
-.admin-form__input--submit{
+.admin-form__input--submit {
     transition: all 0.5s;
 }
 
-.admin-form__input--submit:hover{
+.admin-form__input--submit:hover {
     background-color: $grey--light;
 }

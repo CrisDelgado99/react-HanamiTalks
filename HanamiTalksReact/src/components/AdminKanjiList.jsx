@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axiosClient from "../config/axios";
-import useSWR from "swr";
 import ReactDOM from "react-dom";
 
 export default function AdminKanjiList ({ handleEditClick, handleMutateKanjis, kanjiList }) {

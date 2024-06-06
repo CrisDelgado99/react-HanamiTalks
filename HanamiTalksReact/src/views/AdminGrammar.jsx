@@ -55,7 +55,7 @@ export default function AdminGrammar() {
 
     return (
         <>
-            <GrammarForm ref={formRef} isEdit={isEdit} grammarToEdit={grammarToEdit} handleBackToInsert={handleBackToInsert} handleMutateGrammars={handleMutateGrammars}/>
+            <GrammarForm grammarList={grammarList} ref={formRef} isEdit={isEdit} grammarToEdit={grammarToEdit} handleBackToInsert={handleBackToInsert} handleMutateGrammars={handleMutateGrammars}/>
             <AdminGrammarList setIsEdit={setIsEdit} handleEditClick={handleEditClick} grammarList={grammarList} handleMutateGrammars={handleMutateGrammars} />
         </>
     )

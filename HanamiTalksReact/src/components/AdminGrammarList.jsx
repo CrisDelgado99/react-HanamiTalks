@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import axiosClient from "../config/axios";
-import useSWR from "swr";
 import ReactDOM from "react-dom";
 
-export default function AdminGrammarList ({ handleEditClick, handleMutateGrammars, grammarList }) {
+export default function AdminGrammarList({
+    handleEditClick,
+    handleMutateGrammars,
+    grammarList,
+}) {
     const [deleteMessage, setDeleteMessage] = useState("");
     const [grammarToDelete, setGrammarToDelete] = useState(null);
 
     const handleDeleteClick = (grammar) => {
-        setDeleteMessage(`Are you sure you want to delete grammar with id ${grammar.id}?`);
+        setDeleteMessage(
+            `Are you sure you want to delete grammar with id ${grammar.id}?`
+        );
         setGrammarToDelete(grammar);
     };
 
@@ -16,11 +21,14 @@ export default function AdminGrammarList ({ handleEditClick, handleMutateGrammar
         if (grammarToDelete) {
             const token = localStorage.getItem("AUTH_TOKEN");
             try {
-                await axiosClient.delete(`/api/grammars/${grammarToDelete.id}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
+                await axiosClient.delete(
+                    `/api/grammars/${grammarToDelete.id}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
                 setDeleteMessage("");
                 setGrammarToDelete(null);
                 handleMutateGrammars();
@@ -36,9 +44,7 @@ export default function AdminGrammarList ({ handleEditClick, handleMutateGrammar
             <div className="list-modify--grammar list-modify">
                 {grammarList.map((grammar) => (
                     <div className="list-modify__element" key={grammar.id}>
-                        <h2>
-                            {grammar.topicTitle}
-                        </h2>
+                        <h2>{grammar.topicTitle}</h2>
                         <div className="modify--buttons">
                             <button
                                 type="button"
@@ -79,7 +85,7 @@ export default function AdminGrammarList ({ handleEditClick, handleMutateGrammar
                 ))}
             </div>
 
-            {deleteMessage && 
+            {deleteMessage &&
                 ReactDOM.createPortal(
                     <div className="modal-background">
                         <div className="modal--delete">
@@ -88,7 +94,24 @@ export default function AdminGrammarList ({ handleEditClick, handleMutateGrammar
                                 <div>
                                     <p>Grammar data:</p>
                                     <ul>
-                                        <li>Title: <label className="japanese">{grammarToDelete.topicTitle}</label></li>
+                                        <li>
+                                            Title:{" "}
+                                            <label className="japanese">
+                                                {grammarToDelete.topicTitle}
+                                            </label>
+                                        </li>
+                                        {grammarToDelete.grammar_uses.length >
+                                            0 && (
+                                            <ul>
+                                                {grammarToDelete.grammar_uses.map(
+                                                    (use, index) => (
+                                                        <li key={index}>
+                                                            Title grammar use {index + 1}: {use.title}
+                                                        </li>
+                                                    )
+                                                )}
+                                            </ul>
+                                        )}
                                     </ul>
                                 </div>
                             )}
@@ -110,8 +133,7 @@ export default function AdminGrammarList ({ handleEditClick, handleMutateGrammar
                         </div>
                     </div>,
                     document.body
-                )
-            }
+                )}
         </>
     );
 }

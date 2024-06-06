@@ -97,7 +97,7 @@ footer, header {
   background-color: #F34027;
   position: relative;
   bottom: 0.1rem;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul li:hover {
   background-color: #F38CB2;
@@ -114,7 +114,7 @@ footer, header {
 .header--with-nav nav ul .navLink {
   text-decoration: none;
   color: #F0F0F0;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul .navLink:hover {
   color: #262626;
@@ -135,8 +135,20 @@ h1, h2, h3, h4, h5, .logo label {
   font-weight: lighter;
 }
 
+h1 .japanese {
+  font-size: 2.4rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
 h2 {
   font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
 }
 
 .logo, .logo label {
@@ -152,10 +164,6 @@ h2 {
 .japanese {
   font-family: "JapaneseFont";
   font-size: 1.2rem;
-}
-
-h1 .japanese {
-  font-size: 2.5rem;
 }
 
 .card--rotating h1, .card--simple h1 {
@@ -342,6 +350,48 @@ div.cornerSvg {
   line-height: 2;
   font-size: 1.2rem;
   color: #262626;
+}
+
+.modal--errors {
+  padding: 1.6rem 2.6rem;
+  text-align: justify;
+  border: solid #F38CB2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F38CB2;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background-color: #FED5E1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.modal--errors p {
+  padding: 1rem;
+  text-align: center;
+  border: 0.1rem solid #262626;
+}
+.modal--errors .modal--errors__errors {
+  background-color: #FBC4BC;
+}
+.modal--errors .modal--errors__success {
+  background-color: #b0e4d5;
+}
+.modal--errors input {
+  background-color: #F38CB2;
+  transition: all 0.5s;
+}
+.modal--errors input:hover {
+  background-color: #F34027;
+  color: #F0F0F0;
+}
+
+input.input--admin-modify {
+  background-color: #b0e4d5;
+  transition: all 0.5s;
+}
+
+input.input--admin-modify:hover {
+  background-color: #00a876;
+  color: #F0F0F0;
 }
 
 /*# sourceMappingURL=ppal.css.map */

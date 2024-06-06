@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import KanjiForm from "../components/KanjiForm";
 import useHanamiTalks from "../hooks/useHanamiTalks";
 import { Link } from "react-router-dom";
 import "./../assets/css/list.css";

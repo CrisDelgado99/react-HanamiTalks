@@ -8,73 +8,89 @@ import { useAuth } from "../hooks/useAuth";
 import AdminModify from "../components/AdminModify";
 
 export default function Grammar() {
-    const { currentGrammarTopic, setCurrentGrammarTopic } =
-        useHanamiTalks();
+    const { currentGrammarTopic, setCurrentGrammarTopic } = useHanamiTalks();
 
-    const { user } = useAuth({ middleware: 'auth' });
+    const { user } = useAuth({ middleware: "auth" });
     const currentUser = user.data;
     const isAdmin = currentUser.type == "Admin";
-    
+
     const [grammarLvl, setGrammarLvl] = useState(currentUser.grammarLvl);
 
     //SWR consult
     // Fetcher function to get data from API
     const fetcher = async () => {
-        const token = localStorage.getItem('AUTH_TOKEN');
-    
+        const token = localStorage.getItem("AUTH_TOKEN");
+
         return axiosClient("/api/grammars/topicTitles", {
             headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then(response => response.data);
+                Authorization: `Bearer ${token}`,
+            },
+        }).then((response) => response.data);
     };
-    
+
     // Using useSWR to fetch data
-    const { data, error, isLoading } = useSWR("/api/grammars/topicTitles", fetcher);
+    const { data, error, isLoading } = useSWR(
+        "/api/grammars/topicTitles",
+        fetcher
+    );
 
     // Log data and error for debugging
     console.log(data);
     console.log("THIS IS THE SWR ERROR: " + error);
 
     // Handle loading, error, and data states
-    if (isLoading) return <div><h1>Loading...</h1></div>;
-    if (error) return <div><h1>Error: {error.message}</h1></div>;
+    if (isLoading)
+        return (
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        );
+    if (error)
+        return (
+            <div>
+                <h1>Error: {error.message}</h1>
+            </div>
+        );
 
     const grammarTopicTitles = data;
-    
+
     const handleClickCheckbox = async (e) => {
         e.preventDefault();
-        
+
         currentUser.grammarLvl = grammarLvl + 1;
 
-        let updatedUser = {... currentUser};
+        let updatedUser = { ...currentUser };
 
         let prevKanjis = [];
         let prevGrammars = [];
         let prevVocabs = [];
 
-        updatedUser.kanjis.map(kanji => prevKanjis.push(kanji.id));
-        updatedUser.vocabularies.map(vocab => prevVocabs.push(vocab.id));
-        updatedUser.grammars.map(grammar => prevGrammars.push(grammar.id));
+        updatedUser.kanjis.map((kanji) => prevKanjis.push(kanji.id));
+        updatedUser.vocabularies.map((vocab) => prevVocabs.push(vocab.id));
+        updatedUser.grammars.map((grammar) => prevGrammars.push(grammar.id));
 
         updatedUser.kanjis = prevKanjis;
         updatedUser.vocabularies = prevVocabs;
         updatedUser.grammars = prevGrammars;
 
+        const token = localStorage.getItem("AUTH_TOKEN");
 
-        const token = localStorage.getItem('AUTH_TOKEN');
-    
-        return axiosClient.post("/api/users/" + updatedUser.id, updatedUser ,{
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then(response => response.data, setGrammarLvl(updatedUser.grammarLvl)).catch(error)
-
-    }
+        return axiosClient
+            .post("/api/users/" + updatedUser.id, updatedUser, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then(
+                (response) => response.data,
+                setGrammarLvl(updatedUser.grammarLvl)
+            )
+            .catch(error);
+    };
 
     const handleClickStopParent = (e) => {
         e.preventDefault();
-    }
+    };
 
     const printListElement = (item, index) => {
         return (
@@ -126,7 +142,11 @@ export default function Grammar() {
                                 ? "check check--transparent"
                                 : "check"
                         }
-                        onClick={grammarLvl === item.level ? handleClickCheckbox : handleClickStopParent}
+                        onClick={
+                            grammarLvl === item.level
+                                ? handleClickCheckbox
+                                : handleClickStopParent
+                        }
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -147,23 +167,25 @@ export default function Grammar() {
             </div>
         );
     };
-    
-    
-    return (<>
 
-        {grammarTopicTitles.map((item, index) =>
-            grammarLvl >= item.level ? (
-                <Link
-                    to={"/grammarTopic"}
-                    key={index}
-                    className="listLink"
-                    onClick={() => setCurrentGrammarTopic(item.topicTitle)}
-                >
-                    {printListElement(item, index, grammarLvl)}
-                </Link>
-            ) : (
-                printListElement(item, index, grammarLvl)
-            )
-        )}
-    </>);
+    return (
+        <>
+            {isAdmin && <AdminModify type="Grammar" />}
+
+            {grammarTopicTitles.map((item, index) =>
+                grammarLvl >= item.level ? (
+                    <Link
+                        to={"/grammarTopic"}
+                        key={index}
+                        className="listLink"
+                        onClick={() => setCurrentGrammarTopic(item.topicTitle)}
+                    >
+                        {printListElement(item, index, grammarLvl)}
+                    </Link>
+                ) : (
+                    printListElement(item, index, grammarLvl)
+                )
+            )}
+        </>
+    );
 }
