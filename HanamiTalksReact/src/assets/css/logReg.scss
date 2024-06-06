@@ -46,7 +46,7 @@
     @include card($ppal-color);
     padding: 0rem;
     @include disp-flex-row;
-    transition: 1s all;
+    transition: 0.5s all;
 
 }
 
@@ -63,7 +63,7 @@
     @include card($ppal-color);
     padding: 0rem;
 
-    transition: 1s all;
+    transition: 0.5s all;
 
 }
 
@@ -110,7 +110,7 @@ input[type=text], input[type=password]{
 
 .button--register{
     background-color: $secondary-color;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .button--register:hover{
@@ -119,7 +119,7 @@ input[type=text], input[type=password]{
 
 .button--login{
     background-color: $ppal-color;
-    transition: all 1s;
+    transition: all 0.5s;
 }
 
 .button--login:hover{
@@ -147,26 +147,3 @@ input[type=button], input[type=submit]{
     align-items: center;
     justify-content: center;
 }
-
-.modal--errors{
-    @include card-simple(25rem, $secondary-color, $secondary-color--light);
-    @include disp-flex-column();
-    align-items: stretch;
-
-    p{
-        padding: 1rem;
-        text-align: center;
-        background-color: $ppal-color--light;
-        border: 0.1rem solid $black;
-    }
-
-    input{
-        background-color: $secondary-color;
-        transition: all 1s;
-    }
-
-    input:hover{
-        background-color: $ppal-color;
-    }
-}
-

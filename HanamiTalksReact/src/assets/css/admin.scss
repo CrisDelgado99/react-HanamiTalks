@@ -1,0 +1,103 @@
+@import "ppal.scss";
+
+.nav--admin{
+    background-color: $tertiary-color;
+    width: 100%;
+    padding: 0.2rem;
+
+    @include disp-flex-row();
+    justify-content: center;
+    gap: 3rem;
+    border-bottom: 0.2rem solid $black;
+
+    .nav--current{
+        background-color: $white;
+    }
+
+}
+
+.nav--admin li{
+    @include button();
+    padding: 0.2rem 0.6rem;
+    list-style: none;
+    background-color: $tertiary-color--light;
+    transition: all 0.5s;
+    
+
+    .navLink{
+        color: $black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+}
+
+.nav--admin li:hover{
+    background-color: $white;
+}
+
+.list-modify{
+    @include disp-flex-column();
+    gap: 1rem;
+    width: 100%;
+    .list-modify__element{
+        @include card-simple(100%, $tertiary-color, $tertiary-color--light);
+        @include disp-flex-row();
+        align-items: center;
+        justify-content: space-between;
+
+        h2{
+           
+            font-family: 'Roboto';
+            label{
+                font-size: 1.6rem;
+            }
+        }
+
+        .button--delete, .button--edit{
+            @include button();
+            width: 2.6rem;
+            height: 2rem;
+            transition: all 0.5s;
+
+            margin-left: 1rem;
+
+            svg{
+                width: 1.6rem;
+                height: 1.6rem;
+            }
+        }
+
+        .button--delete:hover, .button--edit:hover{
+            cursor: pointer;
+            background-color: $grey--light;
+        }
+    }
+}
+
+.modal--delete{
+    @include card-simple(50%, $tertiary-color, $tertiary-color--light);
+    @include disp-flex-column();
+    align-items: center;
+
+    .modal--delete__buttons{
+        @include disp-flex-row();
+        gap: 1rem;
+        align-items: center;
+
+        input[type="button"]{
+            cursor: pointer;
+            background-color: $white;
+            transition: all 0.5s;
+        }
+
+        input[type="button"]:hover{
+            background-color: $grey--light;
+        }
+    }
+
+    ul{
+        li{
+            list-style: none;
+        }
+    }
+}

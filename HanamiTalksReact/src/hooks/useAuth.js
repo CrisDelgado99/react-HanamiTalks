@@ -3,7 +3,7 @@ import axiosClient from "../config/axios";
 import { useNavigate } from "react-router-dom";
 import useSWR from "swr";
 
-export const useAuth = ({middleware, url}) => {
+export const useAuth = ({middleware}) => {
 
     const token = localStorage.getItem('AUTH_TOKEN');
     const navigate = useNavigate();
@@ -67,9 +67,13 @@ export const useAuth = ({middleware, url}) => {
     }
 
     useEffect(() => {
-        if (middleware === 'guest' && url && user) {
-            navigate(url, { replace: true });
-        } else if (middleware === 'auth' && !user) {
+        if (middleware === 'guest' && user && user.data.type == 'Admin'){
+            navigate('/admin', {replace: true})
+        }
+        if (middleware === 'guest' && user) {
+            navigate('/', { replace: true });
+        } 
+        if (middleware === 'auth' && !user) {
             navigate('/auth/loginRegister', { replace: true });
         }
     }, [user, error]);

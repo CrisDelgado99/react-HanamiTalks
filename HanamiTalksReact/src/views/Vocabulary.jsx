@@ -6,6 +6,7 @@ import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
 import VocabularyForm from "../components/VocabularyForm";
+import AdminModify from "../components/AdminModify";
 
 export default function Vocabulary() {
     const { currentVocabularyTopic, setCurrentVocabularyTopic } =
@@ -152,7 +153,7 @@ export default function Vocabulary() {
 
     return (
         <>
-            {isAdmin && <VocabularyForm vocabularyTopicTitles={vocabularyTopicTitles}/>}
+            {isAdmin && <AdminModify type="Vocabulary"/>}
 
             {vocabularyTopicTitles.map((item, index) =>
                 vocabLvl >= item.level ? (

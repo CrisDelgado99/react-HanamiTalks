@@ -97,7 +97,7 @@ footer, header {
   background-color: #F34027;
   position: relative;
   bottom: 0.1rem;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul li:hover {
   background-color: #F38CB2;
@@ -114,7 +114,7 @@ footer, header {
 .header--with-nav nav ul .navLink {
   text-decoration: none;
   color: #F0F0F0;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul .navLink:hover {
   color: #262626;
@@ -344,13 +344,55 @@ div.cornerSvg {
   color: #262626;
 }
 
+.modal--errors {
+  padding: 1.6rem 2.6rem;
+  text-align: justify;
+  border: solid #F38CB2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #F38CB2;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background-color: #FED5E1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.modal--errors p {
+  padding: 1rem;
+  text-align: center;
+  border: 0.1rem solid #262626;
+}
+.modal--errors .modal--errors__errors {
+  background-color: #FBC4BC;
+}
+.modal--errors .modal--errors__success {
+  background-color: #b0e4d5;
+}
+.modal--errors input {
+  background-color: #F38CB2;
+  transition: all 0.5s;
+}
+.modal--errors input:hover {
+  background-color: #F34027;
+  color: #F0F0F0;
+}
+
+input.input--admin-modify {
+  background-color: #b0e4d5;
+  transition: all 0.5s;
+}
+
+input.input--admin-modify:hover {
+  background-color: #00a876;
+  color: #F0F0F0;
+}
+
 .card--item-form {
   padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #00a876 0.1rem;
   box-shadow: 0 0.2rem 0 0 #00a876;
   border-radius: 0.3rem;
-  width: 45%;
+  width: 50%;
   background-color: #b0e4d5;
   display: flex;
   flex-direction: column;
@@ -366,6 +408,22 @@ div.cornerSvg {
 }
 .card--item-form .item-form__div--input input {
   padding: 0.2rem 0.4rem;
+  width: 9rem;
+}
+.card--item-form .item-form__div--textarea {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 0rem;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.card--item-form .item-form__div--textarea textarea {
+  background-color: rgba(240, 240, 240, 0.6980392157);
+  border: solid #262626 0.1rem;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+  width: 100%;
 }
 .card--item-form .item-form__div--topicTitles {
   border: 0.15rem solid #00a876;
@@ -388,6 +446,35 @@ div.cornerSvg {
   flex-direction: column;
   align-items: center;
   margin-top: 0.6rem;
+}
+.card--item-form .item-form__div--topicTitles .item-form__div--newTopic input {
+  padding: 0.2rem 0.4rem;
+  width: 9rem;
+}
+
+.card--grammar-form {
+  width: 70%;
+}
+
+.card--grammar-form .item-form__div--input {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem 0rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.card--grammar-form .item-form__div--input input {
+  padding: 0.2rem 0.4rem;
+  width: 9rem;
+}
+
+.admin-form__input--submit {
+  transition: all 0.5s;
+}
+
+.admin-form__input--submit:hover {
+  background-color: #bfbfbf;
 }
 
 /*# sourceMappingURL=itemForm.css.map */

@@ -6,6 +6,7 @@ import "./../assets/css/list.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import AdminModify from "../components/AdminModify";
 
 export default function Kanji() {
     //I get the states, variables and functions from the context
@@ -151,7 +152,7 @@ export default function Kanji() {
 
     return (
         <>
-            {isAdmin && <KanjiForm kanjiTopicTitles={kanjiTopicTitles}/>}
+            {isAdmin && <AdminModify type="Kanji"/>}
 
             {kanjiTopicTitles.map((item, index) =>
                 kanjiLvl >= item.level ? (

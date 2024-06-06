@@ -1,6 +1,5 @@
 import React from "react";
 import { createRef, useState } from "react";
-import axiosClient from "../config/axios";
 import ReactDOM from "react-dom";
 import { useAuth } from "../hooks/useAuth";
 
@@ -11,7 +10,6 @@ export default function Login() {
     const [errors, setErrors] = useState([]);
     const { login } = useAuth({
         middleware:'guest',
-        url: '/'
     });
 
     const handleSubmit = async (e) => {
@@ -49,7 +47,7 @@ export default function Login() {
                       <div className="modal-background">
                           <div className="modal--errors">
                               {errors
-                                  ? errors.map((error, index) => <p key={index}>{error}</p>)
+                                  ? errors.map((error, index) => <p className="modal--errors__errors" key={index}>{error}</p>)
                                   : null}
 
                               <input

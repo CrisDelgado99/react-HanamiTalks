@@ -15,13 +15,10 @@ export default function Nav({ location }) {
     return (
         <nav>
             <ul>
-                
-                    
-                    
                         <li className={
-                        location.pathname == "/kana" ? "nav--current" : ""
+                        location.pathname == "/" ? "nav--current" : ""
                     }>
-                            <NavLink className="navLink" to="/kana">Kana</NavLink>
+                            <NavLink className="navLink" to="/">Kana</NavLink>
                         </li>
                         <li className={
                         location.pathname == "/kanji" ? "nav--current" : ""

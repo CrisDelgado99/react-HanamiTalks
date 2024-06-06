@@ -97,7 +97,7 @@ footer, header {
   background-color: #F34027;
   position: relative;
   bottom: 0.1rem;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul li:hover {
   background-color: #F38CB2;
@@ -114,7 +114,7 @@ footer, header {
 .header--with-nav nav ul .navLink {
   text-decoration: none;
   color: #F0F0F0;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul .navLink:hover {
   color: #262626;
@@ -369,7 +369,7 @@ div.cornerSvg {
 }
 .modal--errors input {
   background-color: #F38CB2;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .modal--errors input:hover {
   background-color: #F34027;
@@ -378,7 +378,7 @@ div.cornerSvg {
 
 input.input--admin-modify {
   background-color: #b0e4d5;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 input.input--admin-modify:hover {
@@ -386,156 +386,110 @@ input.input--admin-modify:hover {
   color: #F0F0F0;
 }
 
-.logReg .card--full {
-  height: 25rem;
-}
-
-.logReg .card--full__front, .logReg .card--full__back {
-  width: 20rem;
-}
-
-.logReg .card--full__front form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 15rem;
-}
-
-.logReg .card--full__back form {
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
-  gap: 1rem;
-}
-
-.container--switch {
-  align-self: center;
-  align-items: center;
-  justify-content: space-between;
-  width: 18rem;
-}
-.container--switch p {
-  width: 6rem;
-  text-align: center;
-  font-weight: bolder;
-}
-
-.switch {
-  height: 2rem;
-  width: 3.8rem;
-  background-color: #FBC4BC;
-  padding: 1.6rem 2.6rem;
-  text-align: justify;
-  border: solid #F34027 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F34027;
-  border-radius: 0.3rem;
-  padding: 0rem;
+.nav--admin {
+  background-color: #00a876;
+  width: 100%;
+  padding: 0.2rem;
   display: flex;
   flex-direction: row;
-  transition: 1s all;
+  justify-content: center;
+  gap: 3rem;
+  border-bottom: 0.2rem solid #262626;
+}
+.nav--admin .nav--current {
+  background-color: #F0F0F0;
 }
 
-.switch:hover {
-  cursor: pointer;
-}
-
-.switch__handle {
-  height: 1.4rem;
-  width: 1.4rem;
-  background-color: #FBC4BC;
-  padding: 1.6rem 2.6rem;
-  text-align: justify;
-  border: solid #F34027 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F34027;
-  border-radius: 0.3rem;
-  padding: 0rem;
-  transition: 1s all;
-}
-
-.switch--active {
-  justify-content: flex-end;
-  background-color: #FED5E1;
-  padding: 1.6rem 2.6rem;
-  text-align: justify;
-  border: solid #F38CB2 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F38CB2;
-  border-radius: 0.3rem;
-  padding: 0rem;
-}
-
-.switch--active .switch__handle {
-  background-color: #FED5E1;
-  padding: 1.6rem 2.6rem;
-  text-align: justify;
-  border: solid #F38CB2 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F38CB2;
-  border-radius: 0.3rem;
-  padding: 0rem;
-}
-
-.input--user {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23262626' fill-rule='evenodd' d='M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm10 5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1m0 3a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1m0 3a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1m-8-5a3 3 0 1 1 6 0a3 3 0 0 1-6 0m1.942 4a3 3 0 0 0-2.847 2.051l-.044.133l-.004.012c-.042.126-.055.167-.042.195c.006.013.02.023.038.039c.032.025.08.064.146.155A1 1 0 0 0 6 17h6a1 1 0 0 0 .811-.415a.7.7 0 0 1 .146-.155c.019-.016.031-.026.038-.04c.014-.027 0-.068-.042-.194l-.004-.012l-.044-.133A3 3 0 0 0 10.059 14z' clip-rule='evenodd'/%3E%3C/svg%3E");
-}
-
-.input--email {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23262626' d='M20 12a8 8 0 1 0-3.562 6.657l1.11 1.664A9.953 9.953 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10v1.5a3.5 3.5 0 0 1-6.396 1.966A5 5 0 1 1 15 8h2v5.5a1.5 1.5 0 0 0 3 0zm-8-3a3 3 0 1 0 0 6a3 3 0 0 0 0-6'/%3E%3C/svg%3E");
-}
-
-.input--password {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23262626' d='M6 22q-.825 0-1.412-.587T4 20V10q0-.825.588-1.412T6 8h1V6q0-2.075 1.463-3.537T12 1t3.538 1.463T17 6v2h1q.825 0 1.413.588T20 10v10q0 .825-.587 1.413T18 22zm6-5q.825 0 1.413-.587T14 15t-.587-1.412T12 13t-1.412.588T10 15t.588 1.413T12 17M9 8h6V6q0-1.25-.875-2.125T12 3t-2.125.875T9 6z'/%3E%3C/svg%3E");
-}
-
-input[type=text], input[type=password] {
-  border: 0.1rem solid #262626;
-  border-radius: 0.2rem;
-  background-repeat: no-repeat;
-  background-size: 1.5rem 1.5rem;
-  background-position: left center;
-  padding-left: 2rem;
-  margin: 0rem 1rem;
-  background-color: rgba(240, 240, 240, 0.6980392157);
-  height: 2rem;
-}
-
-.button--register {
-  background-color: #F38CB2;
-  transition: all 1s;
-}
-
-.button--register:hover {
-  background-color: #F34027;
-}
-
-.button--login {
-  background-color: #F34027;
-  transition: all 1s;
-}
-
-.button--login:hover {
-  background-color: #F38CB2;
-}
-
-input[type=button], input[type=submit] {
-  margin: 1rem 2rem;
+.nav--admin li {
   border: solid #262626 0.1rem;
   box-shadow: 0 0.4rem 0 0 #262626;
   border-radius: 0.3rem;
-  padding: 0.5rem;
-  font-weight: bolder;
-  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  list-style: none;
+  background-color: #b0e4d5;
+  transition: all 0.5s;
+}
+.nav--admin li .navLink {
+  color: #262626;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.modal-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
+.nav--admin li:hover {
+  background-color: #F0F0F0;
+}
+
+.list-modify {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
-  background-color: rgba(38, 38, 38, 0.7176470588);
+}
+.list-modify .list-modify__element {
+  padding: 1.6rem 2.6rem;
+  text-align: justify;
+  border: solid #00a876 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #00a876;
+  border-radius: 0.3rem;
+  width: 100%;
+  background-color: #b0e4d5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-modify .list-modify__element h2 {
+  font-family: "Roboto";
+}
+.list-modify .list-modify__element h2 label {
+  font-size: 1.6rem;
+}
+.list-modify .list-modify__element .button--delete, .list-modify .list-modify__element .button--edit {
+  border: solid #262626 0.1rem;
+  box-shadow: 0 0.4rem 0 0 #262626;
+  border-radius: 0.3rem;
+  width: 2.6rem;
+  height: 2rem;
+  transition: all 0.5s;
+  margin-left: 1rem;
+}
+.list-modify .list-modify__element .button--delete svg, .list-modify .list-modify__element .button--edit svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.list-modify .list-modify__element .button--delete:hover, .list-modify .list-modify__element .button--edit:hover {
+  cursor: pointer;
+  background-color: #bfbfbf;
+}
+
+.modal--delete {
+  padding: 1.6rem 2.6rem;
+  text-align: justify;
+  border: solid #00a876 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #00a876;
+  border-radius: 0.3rem;
+  width: 50%;
+  background-color: #b0e4d5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+.modal--delete .modal--delete__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.modal--delete .modal--delete__buttons input[type=button] {
+  cursor: pointer;
+  background-color: #F0F0F0;
+  transition: all 0.5s;
+}
+.modal--delete .modal--delete__buttons input[type=button]:hover {
+  background-color: #bfbfbf;
+}
+.modal--delete ul li {
+  list-style: none;
 }
 
-/*# sourceMappingURL=logReg.css.map */
+/*# sourceMappingURL=admin.css.map */

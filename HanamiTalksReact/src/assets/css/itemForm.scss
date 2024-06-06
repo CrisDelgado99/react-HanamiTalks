@@ -1,7 +1,7 @@
 @import "ppal.scss";
 
 .card--item-form{
-    @include card-simple(45%, $tertiary-color, $tertiary-color--light);
+    @include card-simple(50%, $tertiary-color, $tertiary-color--light);
     @include disp-flex-column();
 
     align-items: center;
@@ -17,6 +17,24 @@
 
         input{
             padding: 0.2rem 0.4rem;
+            width: 9rem
+        };
+    }
+
+    .item-form__div--textarea{
+        width: 90%;
+        @include disp-flex-column();
+        padding: 0.2rem 0rem;
+
+        justify-content: stretch;
+        align-items: stretch;
+
+        textarea{
+            background-color: $white-transparent;
+            border: solid $black 0.1rem;
+            border-radius: 0.2rem;
+            padding: 0.2rem 0.4rem;
+            width: 100%;
         };
     }
 
@@ -41,8 +59,41 @@
             @include disp-flex-column();
             align-items: center;
             margin-top: 0.6rem;
+
+            input{
+                padding: 0.2rem 0.4rem;
+                width: 9rem
+            };
         }
+
+
     }
 
 
+}
+
+.card--grammar-form{
+    width: 70%;
+}
+
+.card--grammar-form .item-form__div--input{
+    width: 90%;
+    @include disp-flex-row();
+    padding: 0.2rem 0rem;
+
+    justify-content: space-between;
+    align-items: center;
+
+    input{
+        padding: 0.2rem 0.4rem;
+        width: 9rem
+    };
+}
+
+.admin-form__input--submit{
+    transition: all 0.5s;
+}
+
+.admin-form__input--submit:hover{
+    background-color: $grey--light;
 }

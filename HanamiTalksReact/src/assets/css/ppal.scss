@@ -22,7 +22,8 @@ $tertiary-color--transparent: #00a8769f;
 $tertiary-color--moreTransparent: #00a87614;
 
 $grey: #8c8c8c;
-$grey--light: #d9d9d9; 
+$grey--light: #bfbfbf;
+$grey--lighter: #d9d9d9; 
 $white: #F0F0F0;
 $white-transparent: #f0f0f0b2;
 $black: #262626;
@@ -161,7 +162,7 @@ footer, header{
                 background-color: $ppal-color;
                 position: relative;
                 bottom: 0.1rem;
-                transition: 1s all;
+                transition: 0.5s all;
             }
 
             li:hover{
@@ -182,7 +183,7 @@ footer, header{
             .navLink{
                 text-decoration: none;
                 color: $white;
-                transition: 1s all;
+                transition: 0.5s all;
             }
 
             .navLink:hover{
@@ -421,4 +422,45 @@ h1 .japanese{
         font-size: 1.2rem;
         color: $black;
     }
+    
+}
+
+.modal--errors{
+    @include card-simple(25rem, $secondary-color, $secondary-color--light);
+    @include disp-flex-column();
+    align-items: stretch;
+
+    p{
+        padding: 1rem;
+        text-align: center;
+        border: 0.1rem solid $black;
+    }
+
+    .modal--errors__errors{
+        background-color: $ppal-color--light;
+    }
+
+    .modal--errors__success{
+        background-color: $tertiary-color--light;
+    }
+
+    input{
+        background-color: $secondary-color;
+        transition: all 0.5s;
+    }
+
+    input:hover{
+        background-color: $ppal-color;
+        color: $white;
+    }
+}
+
+input.input--admin-modify{
+    background-color: $tertiary-color--light;
+    transition: all 0.5s;
+}
+
+input.input--admin-modify:hover{
+    background-color: $tertiary-color;
+    color: $white;
 }

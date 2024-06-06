@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import KanjiForm from "../components/KanjiForm";
 import useHanamiTalks from "../hooks/useHanamiTalks";
-import { grammar as grammarList } from "./../assets/data/grammar";
 import { Link } from "react-router-dom";
 import "./../assets/css/list.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
-import GrammarForm from "../components/GrammarForm";
+import AdminModify from "../components/AdminModify";
 
 export default function Grammar() {
     const { currentGrammarTopic, setCurrentGrammarTopic } =
@@ -152,7 +150,6 @@ export default function Grammar() {
     
     
     return (<>
-        {isAdmin && <GrammarForm />}
 
         {grammarTopicTitles.map((item, index) =>
             grammarLvl >= item.level ? (

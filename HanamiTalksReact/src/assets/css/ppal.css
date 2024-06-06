@@ -135,6 +135,10 @@ h1, h2, h3, h4, h5, .logo label {
   font-weight: lighter;
 }
 
+h2 {
+  font-size: 1.4rem;
+}
+
 .logo, .logo label {
   font-size: 2.5rem;
   color: #F38CB2;
@@ -167,7 +171,7 @@ h1 .japanese {
 }
 
 .card--simple {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #262626 0.1rem;
   box-shadow: 0 0.2rem 0 0 #262626;
@@ -187,7 +191,7 @@ h1 .japanese {
 }
 
 .card--full__front {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #F34027 0.1rem;
   box-shadow: 0 0.2rem 0 0 #F34027;
@@ -213,7 +217,7 @@ h1 .japanese {
 }
 
 .card--full__back {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #F38CB2 0.1rem;
   box-shadow: 0 0.2rem 0 0 #F38CB2;
@@ -251,12 +255,12 @@ h1 .japanese {
   background-color: #00a876;
 }
 
-.card--rotating:hover .cornerSvg > svg.corner {
+.card--rotating:hover .cornerSvg > .corner {
   transform: rotate(20deg);
   transform: scale(1.2);
 }
 
-.card--rotating:hover .notebook--add svg.pen {
+.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
   transform: none;
 }
 
@@ -264,7 +268,7 @@ h1 .japanese {
   background-color: #F38CB2;
 }
 .notebook--add:hover svg.pen, .notebook--remove:hover svg.pen {
-  transform: scale(1.2);
+  transform: scale(1.2) !important;
 }
 
 .card--folded:hover {

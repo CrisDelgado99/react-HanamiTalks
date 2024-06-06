@@ -9,8 +9,11 @@ import Vocabulary from './views/Vocabulary';
 import VocabularyTopic from './views/VocabularyTopic';
 import Grammar from './views/Grammar';
 import GrammarTopic from './views/GrammarTopic';
-import Index from './views/Index';
 import Notebook from './views/Notebook';
+import AdminLayout from './layouts/AdminLayout';
+import AdminKanji from './views/AdminKanji';
+import AdminVocabulary from './views/AdminVocabulary';
+import AdminGrammar from './views/AdminGrammar' 
 
 const router = createBrowserRouter([
     {
@@ -19,15 +22,11 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Index />
+                element: <Kana />
             },
             {
                 path: '/kanji',
                 element: <Kanji />
-            },
-            {
-                path: '/kana',
-                element: <Kana />
             },
             {
                 path: '/kanjiTopic',
@@ -62,6 +61,24 @@ const router = createBrowserRouter([
             {
                 path: '/auth/loginRegister',
                 element: <LoginRegister />
+            }
+        ]
+    },
+    {
+        path: '/admin',
+        element: <AdminLayout />,
+        children: [
+            {
+                path: '/admin/adminKanji',
+                element: <AdminKanji />
+            },
+            {
+                path: '/admin/adminVocabulary',
+                element: <AdminVocabulary />
+            },
+            {
+                path: '/admin/adminGrammar',
+                element: <AdminGrammar />
             }
         ]
     }
