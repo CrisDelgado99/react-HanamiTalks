@@ -46,10 +46,12 @@ main.auth {
   min-height: calc(100vh - 6rem);
 }
 
-footer, header {
+footer,
+header {
   background-color: #262626;
-  color: #F0F0F0;
-  height: 6rem;
+  color: #f0f0f0;
+  padding: 1rem;
+  min-height: 6rem;
 }
 
 .header--simple {
@@ -65,6 +67,19 @@ footer, header {
   align-items: center;
   justify-content: space-around;
 }
+.header--with-nav nav ul {
+  position: relative;
+}
+.header--with-nav nav li:active {
+  color: #262626;
+  box-shadow: 0 0.2rem 0 0 #262626;
+  transition: 0s top;
+  transition: 0s box-shadow;
+  position: relative;
+  top: 0.1rem;
+  padding: 0;
+  margin: 0;
+}
 .header--with-nav nav {
   display: flex;
   flex-direction: row;
@@ -73,7 +88,7 @@ footer, header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #F34027;
+  background-color: #f34027;
   border-radius: 0.5rem;
 }
 .header--with-nav nav ul {
@@ -94,18 +109,20 @@ footer, header {
   border: solid #262626 0.1rem;
   box-shadow: 0 0.4rem 0 0 #262626;
   border-radius: 0.3rem;
-  background-color: #F34027;
+  text-align: center;
+  background-color: #f34027;
   position: relative;
   bottom: 0.1rem;
-  transition: 1s all;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul li:hover {
-  background-color: #F38CB2;
+  background-color: #f38cb2;
   color: #262626;
   cursor: pointer;
+  text-align: center;
 }
 .header--with-nav nav ul li.nav--current {
-  background-color: #F38CB2;
+  background-color: #f38cb2;
   color: #262626;
 }
 .header--with-nav nav ul li.nav--current .navLink {
@@ -113,36 +130,65 @@ footer, header {
 }
 .header--with-nav nav ul .navLink {
   text-decoration: none;
-  color: #F0F0F0;
-  transition: 1s all;
+  color: #f0f0f0;
+  transition: 0.5s all;
 }
 .header--with-nav nav ul .navLink:hover {
   color: #262626;
 }
-.header--with-nav .logo, .header--with-nav .logo label {
+.header--with-nav .button--toggleNav svg {
+  width: 1rem;
+}
+.header--with-nav .logo,
+.header--with-nav .logo label {
   font-size: 2rem;
 }
 
-p, li, label {
+p,
+li,
+label,
+textarea {
   font-family: "Roboto";
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
-h1, h2, h3, h4, h5, .logo label {
+h1,
+h2,
+h3,
+h4,
+h5,
+.logo label {
   font-family: "Gagalin";
   margin-bottom: 0.6rem;
   font-weight: lighter;
 }
 
-.logo, .logo label {
+h1 .japanese {
+  font-size: 2.4rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.logo,
+.logo label {
   font-size: 2.5rem;
-  color: #F38CB2;
+  color: #f38cb2;
   font-weight: lighter;
 }
 
 .logo {
-  color: #F34027;
+  color: #f34027;
 }
 
 .japanese {
@@ -150,11 +196,8 @@ h1, h2, h3, h4, h5, .logo label {
   font-size: 1.2rem;
 }
 
-h1 .japanese {
-  font-size: 2.5rem;
-}
-
-.card--rotating h1, .card--simple h1 {
+.card--rotating h1,
+.card--simple h1 {
   font-size: 2rem;
   line-height: 2.5rem;
   text-align: center;
@@ -167,13 +210,13 @@ h1 .japanese {
 }
 
 .card--simple {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #262626 0.1rem;
   box-shadow: 0 0.2rem 0 0 #262626;
   border-radius: 0.3rem;
   width: 100%;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
 }
@@ -187,13 +230,13 @@ h1 .japanese {
 }
 
 .card--full__front {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
-  border: solid #F34027 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F34027;
+  border: solid #f34027 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #f34027;
   border-radius: 0.3rem;
   width: 25rem;
-  background: linear-gradient(to bottom left, #FED5E1 2rem, #FBC4BC 0);
+  background: linear-gradient(to bottom left, #fed5e1 2rem, #fbc4bc 0);
   position: relative;
   height: 100%;
   backface-visibility: hidden;
@@ -213,13 +256,13 @@ h1 .japanese {
 }
 
 .card--full__back {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
-  border: solid #F38CB2 0.1rem;
-  box-shadow: 0 0.2rem 0 0 #F38CB2;
+  border: solid #f38cb2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #f38cb2;
   border-radius: 0.3rem;
   width: 25rem;
-  background: linear-gradient(to bottom left, #FBC4BC 2rem, #FED5E1 0);
+  background: linear-gradient(to bottom left, #fbc4bc 2rem, #fed5e1 0);
   position: absolute;
   top: 0;
   height: 100%;
@@ -231,7 +274,8 @@ h1 .japanese {
   flex-direction: column;
 }
 
-.notebook--add, .notebook--remove {
+.notebook--add,
+.notebook--remove {
   border: solid #262626 0.1rem;
   max-width: 1.5rem;
   height: 1.5rem;
@@ -239,7 +283,8 @@ h1 .japanese {
   background-color: rgba(240, 240, 240, 0.6980392157);
   position: relative;
 }
-.notebook--add svg, .notebook--remove svg {
+.notebook--add svg,
+.notebook--remove svg {
   height: 2rem;
   width: 2rem;
   position: relative;
@@ -256,14 +301,17 @@ h1 .japanese {
   transform: scale(1.2);
 }
 
-.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
+.card--rotating:hover .notebook--add svg.pen,
+.card--rotating:hover .notebook--remove svg.pen {
   transform: none;
 }
 
-.notebook--add:hover, .notebook--remove:hover {
-  background-color: #F38CB2;
+.notebook--add:hover,
+.notebook--remove:hover {
+  background-color: #f38cb2;
 }
-.notebook--add:hover svg.pen, .notebook--remove:hover svg.pen {
+.notebook--add:hover svg.pen,
+.notebook--remove:hover svg.pen {
   transform: scale(1.2) !important;
 }
 
@@ -340,14 +388,129 @@ div.cornerSvg {
   color: #262626;
 }
 
+.modal--errors {
+  padding: 1.6rem 2.6rem;
+  text-align: justify;
+  border: solid #f38cb2 0.1rem;
+  box-shadow: 0 0.2rem 0 0 #f38cb2;
+  border-radius: 0.3rem;
+  width: 25rem;
+  background-color: #fed5e1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.modal--errors p {
+  padding: 1rem;
+  text-align: center;
+  border: 0.1rem solid #262626;
+}
+.modal--errors .modal--errors__errors {
+  background-color: #fbc4bc;
+}
+.modal--errors .modal--errors__success {
+  background-color: #b0e4d5;
+}
+.modal--errors input {
+  background-color: #f38cb2;
+  transition: all 0.5s;
+}
+.modal--errors input:hover {
+  background-color: #f34027;
+  color: #f0f0f0;
+}
+
+input.input--admin-modify {
+  background-color: #b0e4d5;
+  transition: all 0.5s;
+}
+
+input.input--admin-modify:hover {
+  background-color: #00a876;
+  color: #f0f0f0;
+}
+
+@media only screen and (max-width: 1130px) {
+  .container--grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 1080px) {
+  .header--with-nav {
+    height: 8rem;
+  }
+  .header--with-nav .logo {
+    margin-left: 1rem;
+  }
+  .header--with-nav nav {
+    display: flex;
+    flex-direction: column;
+    height: 7rem;
+    margin: 4rem;
+  }
+  .header--with-nav nav ul {
+    margin-bottom: 0.5rem;
+  }
+  .container--row {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    padding: 1rem 4rem;
+  }
+  .card--simple.grammar {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  main {
+    padding: 1rem 2rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  main {
+    padding: 1rem;
+  }
+  .container--row {
+    display: flex;
+    flex-direction: column;
+  }
+  .card--full__front {
+    width: 24rem;
+  }
+  .card--full--back {
+    width: 90%;
+  }
+  h1 .japanese {
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .container--grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card--simple.grammar {
+    margin: 4rem 1rem;
+    width: 100%;
+  }
+  .card--simple.grammar .card--simple.grammar h2.title--grammarUse {
+    text-align: center;
+  }
+  .card--simple.grammar .modal--errors {
+    width: 22rem;
+  }
+}
 .card--notebook {
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.6rem;
   text-align: justify;
   border: solid #8c8c8c 0.1rem;
   box-shadow: 0 0.2rem 0 0 #8c8c8c;
   border-radius: 0.3rem;
   width: 80%;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -419,6 +582,16 @@ div.cornerSvg {
 }
 .list--grammarUses li {
   padding-top: 0.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .card--notebook {
+    width: 90%;
+    padding: 3rem 1rem;
+  }
+  .list--grammarUses {
+    padding-left: 1rem;
+  }
 }
 
 /*# sourceMappingURL=notebook.css.map */

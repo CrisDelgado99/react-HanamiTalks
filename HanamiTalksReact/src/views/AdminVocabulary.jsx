@@ -4,6 +4,7 @@ import useSWR from "swr";
 import VocabularyForm from "../components/VocabularyForm";
 import AdminVocabularyList from "../components/AdminVocabularyList";
 import { useRef } from "react";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function AdminVocabulary() {
     const [isEdit, setIsEdit] = useState(false);
@@ -25,7 +26,7 @@ export default function AdminVocabulary() {
     const { data : dataTopicTitles, error: errorTopicTitles, isLoading: isLoadingTopicTitles, mutate: mutateTopicTitles} = useSWR("/api/vocabularies/topicTitles", fetcherTopicTitles);
 
     // Handle loading, error, and data states
-    if (isLoadingTopicTitles) return <div><h1>Loading...</h1></div>;
+    if (isLoadingTopicTitles) return <LoadingScreen/>;
     if (errorTopicTitles) return <div><h1>Error: {error.message}</h1></div>;
 
     // Assuming data is an array of topic titles with levels
@@ -45,7 +46,7 @@ export default function AdminVocabulary() {
       const { data: dataVocabularies, error: errorVocabularies, isLoading: isLoadingVocabularies, mutate:mutateVocabularies } = useSWR("/api/vocabularies", vocabulariesFetcher);
   
       // Handle loading, error, and data states
-      if (isLoadingVocabularies) return <div><h1>Loading...</h1></div>;
+      if (isLoadingVocabularies) return <LoadingScreen/>;
       if (errorVocabularies) return <div><h1>Error: {error.message}</h1></div>;
   
       // Assuming data is an array of topic titles with levels

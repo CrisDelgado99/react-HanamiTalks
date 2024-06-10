@@ -4,6 +4,7 @@ import useSWR from "swr";
 import GrammarForm from "../components/GrammarForm";
 import AdminGrammarList from "../components/AdminGrammarList";
 import { useRef } from "react";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function AdminGrammar() {
     const [isEdit, setIsEdit] = useState(false);
@@ -24,7 +25,7 @@ export default function AdminGrammar() {
       const { data: dataGrammars, error: errorGrammars, isLoading: isLoadingGrammars, mutate:mutateGrammars } = useSWR("/api/grammars", grammarsFetcher);
   
       // Handle loading, error, and data states
-      if (isLoadingGrammars) return <div><h1>Loading...</h1></div>;
+      if (isLoadingGrammars) return <LoadingScreen/>;
       if (errorGrammars) return <div><h1>Error: {error.message}</h1></div>;
   
       const grammarList = dataGrammars.data;

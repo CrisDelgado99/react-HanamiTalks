@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Nav from "../components/Nav";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Footer from "../components/Footer";
 
 export default function Layout() {
 
@@ -25,9 +26,7 @@ export default function Layout() {
                 <Outlet />
             </main>
 
-            <footer>
-
-            </footer>
+            <Footer/>
         </>
     );
 }

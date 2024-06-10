@@ -5,6 +5,7 @@ import useSWR from "swr";
 import axiosClient from "../config/axios";
 import "./../assets/css/vocabulary.css";
 import { useAuth } from "../hooks/useAuth";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function VocabularyTopic() {
     const { currentVocabularyTopic } = useHanamiTalks();
@@ -36,8 +37,8 @@ export default function VocabularyTopic() {
     );
 
     // Log data and error for debugging
-    console.log(data);
-    console.log("THIS IS THE SWR ERROR: " + error);
+    //console.log(data);
+    //console.log("THIS IS THE SWR ERROR: " + error);
 
     // Update state when data changes
     useEffect(() => {
@@ -59,7 +60,7 @@ export default function VocabularyTopic() {
     }, [data, currentUserVocabularies]);
 
     // Handle loading, error, and data states
-    if (isLoading) return <div><h1>Loading...</h1></div>;
+    if (isLoading) return <LoadingScreen/>;
     if (error) return <div><h1>Error: {error.message}</h1></div>;
 
     // Assuming data is an array of topic titles with levels
@@ -216,7 +217,7 @@ export default function VocabularyTopic() {
             >
                 <div className="card--full">
                     <div className="card--folded card--full__front">
-                        <h1 className="word--front">{item.word}</h1>
+                        <h1 className="word--front japanese">{item.word}</h1>
                         <p className="translation--front">{item.translation}</p>
 
                         <div
@@ -271,12 +272,12 @@ export default function VocabularyTopic() {
                         <table className="table--vocabulary">
                             <tr>
                                 <td colSpan={2}>
-                                    <h1 className="word--back">{item.word}</h1>
+                                    <h1 className="word--back japanese">{item.word}</h1>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>Kana: {item.kana}</p>
+                                    <p>Kana: <label className="japanese">{item.kana}</label></p>
                                 </td>
                             </tr>
                             <tr>

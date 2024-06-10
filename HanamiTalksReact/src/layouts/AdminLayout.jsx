@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import AdminNav from "../components/AdminNav";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import Footer from "../components/Footer";
 
 export default function AdminLayout() {
     const location = useLocation();
@@ -26,9 +27,7 @@ export default function AdminLayout() {
                 <Outlet />
             </main>
 
-            <footer>
-
-            </footer>
+            <Footer/>
             </>
         
     );

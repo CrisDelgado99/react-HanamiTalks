@@ -3,6 +3,7 @@ import "./../assets/css/notebook.css";
 import { useAuth } from "../hooks/useAuth";
 import axiosClient from "../config/axios";
 import useSWR from "swr";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function Notebook() {
     const { user } = useAuth({ middleware: "auth" });
@@ -34,9 +35,7 @@ export default function Notebook() {
     // Handle loading, error, and data states
     if (isLoading)
         return (
-            <div>
-                <h1>Loading...</h1>
-            </div>
+            <LoadingScreen/>
         );
     if (error)
         return (

@@ -1,7 +1,7 @@
 @import "ppal.scss";
 
 .card--item-form {
-    @include card-simple(50%, $tertiary-color, $tertiary-color--light);
+    @include card-simple(26rem, $tertiary-color, $tertiary-color--light);
     @include disp-flex-column();
 
     align-items: center;
@@ -68,7 +68,7 @@
 }
 
 .card--grammar-form {
-    width: 50%;
+    width: 30rem;
 
     .item-form__div--uses {
         margin: 2rem;
@@ -114,6 +114,16 @@
 
 .div--uses__buttons{
     align-self: center;
+    position: relative;
+
+    input[type="submit"]:active {
+        color: $black;
+        box-shadow: 0 0.2rem 0 0 $black;
+        transition: 0s top;
+        transition: 0.2s box-shadow;
+        position: relative;
+        top: 0.2rem;
+    }
 
     input[type="submit"]{
         font-size: 1.2rem;
@@ -127,6 +137,16 @@
     }
 }
 
+.admin-form__input--submit:active {
+    color: $black;
+    box-shadow: 0 0.2rem 0 0 $black;
+    transition: 0s top;
+    transition: 0.2s box-shadow;
+    position: relative;
+    top: 0.2rem;
+    padding: 0;
+}
+
 .admin-form__input--submit {
     transition: all 0.5s;
 }
@@ -134,3 +154,13 @@
 .admin-form__input--submit:hover {
     background-color: $grey--light;
 }
+
+@media only screen and (max-width: 600px) {
+    .card--item-form{
+        width: 20rem;
+    }
+
+    .card--item-form input[type="text"]{
+        width: 6rem;
+    }
+    }

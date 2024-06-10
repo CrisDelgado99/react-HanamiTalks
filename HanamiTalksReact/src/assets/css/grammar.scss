@@ -1,18 +1,19 @@
 @import "ppal.scss";
 
-.card--simple.grammar{
+.card--simple.grammar {
     @include card-simple(60%, $ppal-color, $ppal-color--light);
     border-color: $ppal-color;
     box-shadow: 0 0.2rem 0 0 $ppal-color;
     background-color: $ppal-color--light;
 }
 
-.card--simple.grammar .notebook--add, .card--simple.grammar .notebook--remove{
+.card--simple.grammar .notebook--add,
+.card--simple.grammar .notebook--remove {
     margin-top: 1.6rem;
     cursor: pointer;
 }
 
-.container--grammarUse{
+.container--grammarUse {
     padding: 1rem 1.6rem;
 }
 
@@ -24,6 +25,12 @@ h1.title--grammar {
     font-size: 32pt;
 }
 
-h2.title--grammarUse{
+h2.title--grammarUse {
     font-size: 18pt;
+}
+
+@media only screen and (max-width: 600px) {
+    h2.title--grammarUse {
+        text-align: left;
+    }
 }

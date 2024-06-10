@@ -4,6 +4,7 @@ import useSWR from "swr";
 import KanjiForm from "../components/KanjiForm";
 import AdminKanjiList from "../components/AdminKanjiList";
 import { useRef } from "react";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function AdminKanji() {
     const [isEdit, setIsEdit] = useState(false);
@@ -25,7 +26,7 @@ export default function AdminKanji() {
     const { data : dataTopicTitles, error: errorTopicTitles, isLoading: isLoadingTopicTitles, mutate: mutateTopicTitles} = useSWR("/api/kanjis/topicTitles", fetcherTopicTitles);
 
     // Handle loading, error, and data states
-    if (isLoadingTopicTitles) return <div><h1>Loading...</h1></div>;
+    if (isLoadingTopicTitles) return <LoadingScreen/>;
     if (errorTopicTitles) return <div><h1>Error: {error.message}</h1></div>;
 
     // Assuming data is an array of topic titles with levels
@@ -45,7 +46,7 @@ export default function AdminKanji() {
       const { data: dataKanjis, error: errorKanjis, isLoading: isLoadingKanjis, mutate:mutateKanjis } = useSWR("/api/kanjis", kanjisFetcher);
   
       // Handle loading, error, and data states
-      if (isLoadingKanjis) return <div><h1>Loading...</h1></div>;
+      if (isLoadingKanjis) return <LoadingScreen/>;
       if (errorKanjis) return <div><h1>Error: {error.message}</h1></div>;
   
       // Assuming data is an array of topic titles with levels

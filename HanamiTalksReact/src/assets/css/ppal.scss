@@ -1,20 +1,17 @@
 /*This sass file contains the principal styles that are shared by all the files in this webpage.*/
 
-
 //Variables
 //Colors
-$ppal-color: #F34027;
-$ppal-color--light: #FBC4BC;
+$ppal-color: #f34027;
+$ppal-color--light: #fbc4bc;
 $ppal-color--lighter: #f9e4e0;
 $ppal-color--transparent: #f33f277e;
 $ppal-color--moreTransparent: #f33f2715;
 
-
-$secondary-color: #F38CB2;
-$secondary-color--light: #FED5E1;
+$secondary-color: #f38cb2;
+$secondary-color--light: #fed5e1;
 $secondary-color--transparent: #f38cb2af;
 $secondary-color--moreTransparent: #f38cb214;
-
 
 $tertiary-color: #00a876;
 $tertiary-color--light: #b0e4d5;
@@ -23,13 +20,13 @@ $tertiary-color--moreTransparent: #00a87614;
 
 $grey: #8c8c8c;
 $grey--light: #bfbfbf;
-$grey--lighter: #d9d9d9; 
-$white: #F0F0F0;
+$grey--lighter: #d9d9d9;
+$white: #f0f0f0;
 $white-transparent: #f0f0f0b2;
 $black: #262626;
 $black-transparent: #262626b7;
 
-@mixin card($border-color: $black){
+@mixin card($border-color: $black) {
     padding: 1.6rem 2.6rem;
     text-align: justify;
 
@@ -38,58 +35,71 @@ $black-transparent: #262626b7;
     border-radius: 0.3rem;
 }
 
-@mixin card-simple($width:100%, $border-color: $black, $background-color:$white){
+@mixin card-simple(
+    $width: 100%,
+    $border-color: $black,
+    $background-color: $white
+) {
     @include card($border-color);
     width: $width;
     background-color: $background-color;
-
 }
 
-@mixin card-folded($width:100%, $border-color: $black, $background-color:$white, $other-color:$white){
+@mixin card-folded(
+    $width: 100%,
+    $border-color: $black,
+    $background-color: $white,
+    $other-color: $white
+) {
     @include card($border-color);
     width: $width;
-    background:linear-gradient(to bottom left, $other-color 2rem, $background-color 0)
+    background: linear-gradient(
+        to bottom left,
+        $other-color 2rem,
+        $background-color 0
+    );
 }
 
-@mixin button($border-color: $black){
+@mixin button($border-color: $black) {
     border: solid $border-color 0.1rem;
     box-shadow: 0 0.4rem 0 0 $border-color;
     border-radius: 0.3rem;
+    text-align: center;
 }
 
-@mixin disp-flex-column{
+@mixin disp-flex-column {
     display: flex;
     flex-direction: column;
 }
 
-@mixin disp-flex-row{
+@mixin disp-flex-row {
     display: flex;
     flex-direction: row;
 }
 
 /*Fonts*/
 @font-face {
-    font-family: 'Roboto';
+    font-family: "Roboto";
     src: url("./../fonts/RobotoSlab-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'Gagalin';
+    font-family: "Gagalin";
     src: url("./../fonts/Gagalin-Regular.otf");
 }
 
 @font-face {
-    font-family: 'JapaneseFont';
+    font-family: "JapaneseFont";
     src: url("./../fonts/Hosohuwafont.ttf");
 }
 
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body{
+body {
     color: $black;
     width: 100%;
     font-size: 62.5%;
@@ -103,7 +113,7 @@ body{
     justify-content: space-between;
 }
 
-main{
+main {
     background-color: $white-transparent;
     padding: 1rem 10rem;
     min-height: calc(100vh - 12rem);
@@ -112,29 +122,45 @@ main{
     align-items: center;
 }
 
-main.auth{
+main.auth {
     min-height: calc(100vh - 6rem);
 }
 
-footer, header{
+footer,
+header {
     background-color: $black;
     color: $white;
-    height: 6rem;
+    padding: 1rem;
+    min-height: 6rem;
 }
 
 //HEADERS----------------------------------------------------------------------------------------------------------------
-.header--simple{
+.header--simple {
     @include disp-flex-row();
     align-items: center;
     justify-content: center;
 }
 
-.header--with-nav{
+.header--with-nav {
     @include disp-flex-row();
     align-items: center;
     justify-content: space-around;
 
-    nav{
+    nav ul {
+        position: relative;
+    }
+    nav li:active {
+        color: $black;
+        box-shadow: 0 0.2rem 0 0 $black;
+        transition: 0s top;
+        transition: 0s box-shadow;
+        position: relative;
+        top: 0.1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav {
         @include disp-flex-row();
         width: 75%;
         height: 3rem;
@@ -144,11 +170,10 @@ footer, header{
         background-color: $ppal-color;
         border-radius: 0.5rem;
 
-        ul{
+        ul {
             @include disp-flex-row();
             gap: 0.5rem;
             position: relative;
-            
 
             li {
                 @include disp-flex-column();
@@ -165,109 +190,136 @@ footer, header{
                 transition: 0.5s all;
             }
 
-            li:hover{
-                background-color: $secondary-color ;
+            li:hover {
+                background-color: $secondary-color;
                 color: $black;
                 cursor: pointer;
+                text-align: center;
             }
 
-            li.nav--current{
-                background-color: $secondary-color ;
+            li.nav--current {
+                background-color: $secondary-color;
                 color: $black;
 
-                .navLink{
+                .navLink {
                     color: $black;
                 }
             }
 
-            .navLink{
+            .navLink {
                 text-decoration: none;
                 color: $white;
                 transition: 0.5s all;
             }
 
-            .navLink:hover{
+            .navLink:hover {
                 color: $black;
             }
-
         }
     }
 
-    .logo, .logo label{
+    .button--toggleNav{
+        display: none;
+        width: 0rem;
+        height: 0rem;
+        svg{
+            width: 0rem;
+            height: 0rem;
+            display: hidden;
+        }
+    }
+
+    .logo,
+    .logo label {
         font-size: 2rem;
     }
 }
 
 //FONTS, COLORS AND SIZES FOR TEXT
-p, li, label, textarea{
-    font-family: 'Roboto';
+p,
+li,
+label,
+textarea {
+    font-family: "Roboto";
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
 }
 
-h1, h2, h3, h4, h5, .logo label{
-    font-family: 'Gagalin';
+h1,
+h2,
+h3,
+h4,
+h5,
+.logo label {
+    font-family: "Gagalin";
     margin-bottom: 0.6rem;
     font-weight: lighter;
 }
 
-h1 .japanese{
-    font-size: 2.4rem;
+h1 .japanese {
+    font-size: 1.8rem;
 }
 
-h1{
-    font-size: 2rem;
+h1 {
+    font-size: 1.8rem;
 }
 
-h2{
+h2 {
     font-size: 1.4rem;
 }
 
-h3{
+h3 {
     font-size: 1.2rem;
 }
-.logo, .logo label{
+.logo,
+.logo label {
     font-size: 2.5rem;
     color: $secondary-color;
     font-weight: lighter;
 }
 
-.logo{
+.logo {
     color: $ppal-color;
 }
 
-.japanese{
+.japanese {
     font-family: "JapaneseFont";
     font-size: 1.2rem;
 }
 
 //CARDS------------------------------------------------------------------------------------------------------
-.card--rotating h1, .card--simple h1{
-    font-size: 2rem;
+.card--rotating h1,
+.card--simple h1 {
+    font-size: 1.8rem;
     line-height: 2.5rem;
     text-align: center;
 }
 
-.container--row{
+.container--row {
     @include disp-flex-row();
     gap: 1rem;
 }
 
-.card--simple{
+.card--simple {
     @include card-simple();
-    @include disp-flex-column()
+    @include disp-flex-column();
 }
 
-.card--rotating{
+.card--rotating {
     position: relative;
 }
 
-.card--full{
+.card--full {
     height: 100%;
 }
 
-.card--full__front{
-    @include card-folded(25rem, $ppal-color, $ppal-color--light, $secondary-color--light);
+.card--full__front {
+    @include card-folded(
+        22rem,
+        $ppal-color,
+        $ppal-color--light,
+        $secondary-color--light
+    );
     position: relative;
     height: 100%;
 
@@ -279,16 +331,21 @@ h3{
     @include disp-flex-column();
 }
 
-.card--rotating.rotated .card--full__back{
+.card--rotating.rotated .card--full__back {
     transform: rotateY(0deg);
 }
 
-.card--rotating.rotated .card--full__front{
+.card--rotating.rotated .card--full__front {
     transform: rotateY(180deg);
 }
 
-.card--full__back{
-    @include card-folded(25rem, $secondary-color, $secondary-color--light, $ppal-color--light);
+.card--full__back {
+    @include card-folded(
+        22rem,
+        $secondary-color,
+        $secondary-color--light,
+        $ppal-color--light
+    );
     position: absolute;
     top: 0;
     height: 100%;
@@ -301,7 +358,8 @@ h3{
     @include disp-flex-column();
 }
 
-.notebook--add, .notebook--remove{
+.notebook--add,
+.notebook--remove {
     border: solid $black 0.1rem;
     max-width: 1.5rem;
     height: 1.5rem;
@@ -309,7 +367,7 @@ h3{
     background-color: $white-transparent;
     position: relative;
 
-    svg{
+    svg {
         height: 2rem;
         width: 2rem;
         position: relative;
@@ -318,85 +376,88 @@ h3{
     }
 }
 
-.notebook--remove{
+.notebook--remove {
     background-color: $tertiary-color;
 }
 
-
 //Hover on rotating cards animations
-.card--rotating:hover .cornerSvg > .corner{
+.card--rotating:hover .cornerSvg > .corner {
     transform: rotate(20deg);
     transform: scale(1.2);
 }
 
-.card--rotating:hover .notebook--add svg.pen, .card--rotating:hover .notebook--remove svg.pen {
+.card--rotating:hover .notebook--add svg.pen,
+.card--rotating:hover .notebook--remove svg.pen {
     transform: none;
 }
 
-.notebook--add:hover, .notebook--remove:hover{
+.notebook--add:hover,
+.notebook--remove:hover {
     background-color: $secondary-color;
 
-    svg.pen{
-        transform: scale(1.2)!important; //I needed to put !important because even though I was
-                                         //using .cornerSvg and .corner, I needed to use transform: none
-                                         //in order to make the svg stay the same scale when the parent
-                                         //element card--rotating was hovered
+    svg.pen {
+        transform: scale(
+            1.2
+        ) !important; //I needed to put !important because even though I was
+        //using .cornerSvg and .corner, I needed to use transform: none
+        //in order to make the svg stay the same scale when the parent
+        //element card--rotating was hovered
     }
 }
 
-.card--folded:hover{
+.card--folded:hover {
     cursor: pointer;
 }
 //CARDS SVG DISSAPEARS
-//This section was needed because the svg corner in the back, as it has display absolute, 
+//This section was needed because the svg corner in the back, as it has display absolute,
 //doesn't go with the flow of the rest of the card, so i need to manually make it dissapear
 @keyframes fadeOut {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
     99% {
-      opacity: 1; /* Maintain opacity until nearly the end */
+        opacity: 1; /* Maintain opacity until nearly the end */
     }
     100% {
-      opacity: 0; /* Change opacity at the end */
+        opacity: 0; /* Change opacity at the end */
     }
-  }
-  
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
-  div.cornerSvg {
+}
+
+div.cornerSvg {
     position: absolute;
     top: 0.1rem;
     right: 0.1rem;
     transform: rotate(20deg);
-  }
+}
 
-  .cornerSvg{
+.cornerSvg {
     height: 1.5rem !important;
     width: 1.5rem !important;
-  }
-  
-  .cornerSvg.dispNone {
-    svg {
-      opacity: 0;
-      animation: fadeOut 0.5s ease-in forwards; 
-    }
-  }
+}
 
-  .cornerSvg.dispNotNone{
-    svg{
+.cornerSvg.dispNone {
+    svg {
+        opacity: 0;
+        animation: fadeOut 0.5s ease-in forwards;
+    }
+}
+
+.cornerSvg.dispNotNone {
+    svg {
         animation: fadeIn 1.2s ease-in forwards;
     }
-  }
+}
 
-  .container--grid {
+.container--grid {
     display: grid;
     column-gap: 1rem;
     row-gap: 1rem;
@@ -407,7 +468,7 @@ h3{
     }
 }
 
-.link--goBack{
+.link--goBack {
     @include disp-flex-row;
     align-items: center;
     justify-content: center;
@@ -415,55 +476,191 @@ h3{
     position: absolute;
     right: 1rem;
 
-    svg{
+    svg {
         height: 1.5rem;
         width: 1.5rem;
     }
 
-    p{
+    p {
         line-height: 2;
         font-size: 1.2rem;
         color: $black;
     }
-    
 }
 
-.modal--errors{
+.modal--errors {
     @include card-simple(25rem, $secondary-color, $secondary-color--light);
     @include disp-flex-column();
     align-items: stretch;
 
-    p{
+    p {
         padding: 1rem;
         text-align: center;
         border: 0.1rem solid $black;
     }
 
-    .modal--errors__errors{
+    .modal--errors__errors {
         background-color: $ppal-color--light;
     }
 
-    .modal--errors__success{
+    .modal--errors__success {
         background-color: $tertiary-color--light;
     }
 
-    input{
+    input {
         background-color: $secondary-color;
         transition: all 0.5s;
     }
 
-    input:hover{
+    input:hover {
         background-color: $ppal-color;
         color: $white;
     }
 }
 
-input.input--admin-modify{
+input.input--admin-modify {
     background-color: $tertiary-color--light;
     transition: all 0.5s;
 }
 
-input.input--admin-modify:hover{
+input.input--admin-modify:hover {
     background-color: $tertiary-color;
     color: $white;
 }
+
+@media only screen and (max-width: 1130px) {
+    .container--grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .header--with-nav {
+        .logo {
+            margin-left: 1rem;
+        }
+        height: 8rem;
+        nav {
+            @include disp-flex-column();
+            height: 7rem;
+            margin: 4rem;
+            ul {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    .container--row {
+        @include disp-flex-column();
+    }
+
+    main {
+        padding: 1rem 4rem;
+    }
+
+    .card--simple.grammar{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    main {
+        padding: 1rem 2rem;
+    }
+
+    .header--with-nav .button--toggleNav{
+        display: inline;
+        z-index: 100;
+        align-self: center;
+        position: relative;
+        bottom: 1rem;
+        right: 1rem;
+        cursor: pointer;
+        svg{
+            width: 2rem;
+            height: 2rem;
+            opacity: 100;
+            color: $black;
+            display: flex;
+        }
+    }
+
+    .header--with-nav{
+        gap: 0rem;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header--with-nav nav{
+        width: 10rem;
+        height: 26rem;
+        @include disp-flex-column();
+        z-index: 99;
+        align-items: center;
+        align-self: baseline;
+        position: relative;
+        bottom: 2rem;
+        ul{
+            @include disp-flex-column();
+        }
+
+        ul.closed{
+            display: none;
+        }
+    }
+
+    .header--with-nav nav.closed{
+        height: 1rem;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        padding: 1rem;
+    }
+
+    .container--row {
+        @include disp-flex-column();
+    }
+
+    .card--full__front {
+        width: 22rem;
+    }
+
+    h1 .japanese {
+        font-size: 1.8rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .container--grid{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+.card--simple.grammar{
+    margin: 4rem 1rem;
+    width: 100%;
+
+    .card--simple.grammar h2.title--grammarUse{
+        text-align: center;
+    }
+
+    .modal--errors{
+        width: 22rem;
+    }
+}
+
+.logo{
+    position: relative;
+    left: 3rem;
+}
+}
+

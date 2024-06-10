@@ -42,3 +42,24 @@ table td .sound-div{
 table td:hover .sound-div{
     opacity: 100%;
 }
+
+@media only screen and (max-width: 800px){
+    table td p.japanese{
+        font-size: 1rem;
+        width: 100%;
+        margin: 0rem;
+    }
+
+    table td{
+        width: 1rem;
+        padding: 0rem;
+        margin: 0rem;
+    }
+
+    table{
+        align-self: center;
+        padding: 0rem;
+        margin: 0rem;
+        width: 90%;
+    }
+  }

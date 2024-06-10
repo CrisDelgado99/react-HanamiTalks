@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { useState } from "react";
 
 export default function Nav({ location }) {
+    const [isClosed, setIsClosed] = useState(true);
     console.log(location.pathname);
 
     const { logout } = useAuth({middleware: 'auth'});
@@ -13,8 +15,8 @@ export default function Nav({ location }) {
     }
 
     return (
-        <nav>
-            <ul>
+        <nav className={isClosed && "closed"}>
+            <ul className={isClosed && "closed"}>
                         <li className={
                         location.pathname == "/" ? "nav--current" : ""
                     }>
@@ -41,8 +43,8 @@ export default function Nav({ location }) {
                 </li>
             </ul>
 
-            <ul>
-                <li
+            <ul className={isClosed && "closed"}>
+                {/* <li
                     className={
                         location.pathname == "/profile" ? "nav--current" : ""
                     }
@@ -50,7 +52,7 @@ export default function Nav({ location }) {
                     <NavLink className="navLink" to="/profile">
                         Profile
                     </NavLink>
-                </li>
+                </li> */}
                 <li
                     className={
                         location.pathname == "/notebook" ? "nav--current" : ""
@@ -66,6 +68,10 @@ export default function Nav({ location }) {
                     </NavLink>
                 </li>
             </ul>
+            <div className="button--toggleNav" onClick={() => setIsClosed(!isClosed)}>
+                {isClosed && <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#262626" d="M17 9.17a1 1 0 0 0-1.41 0L12 12.71L8.46 9.17a1 1 0 0 0-1.41 0a1 1 0 0 0 0 1.42l4.24 4.24a1 1 0 0 0 1.42 0L17 10.59a1 1 0 0 0 0-1.42"/></svg>}
+                {!isClosed && <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="#262626" d="m17 13.41l-4.29-4.24a1 1 0 0 0-1.42 0l-4.24 4.24a1 1 0 0 0 0 1.42a1 1 0 0 0 1.41 0L12 11.29l3.54 3.54a1 1 0 0 0 .7.29a1 1 0 0 0 .71-.29a1 1 0 0 0 .05-1.42"/></svg>}
+            </div>
         </nav>
     );
 }

@@ -5,6 +5,7 @@ import "./../assets/css/grammar.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function GrammarTopic() {
     const { currentGrammarTopic } = useHanamiTalks();
@@ -37,7 +38,7 @@ export default function GrammarTopic() {
     }, [data, currentUserGrammars]);
 
     // Handle loading, error, and data states
-    if (isLoading) return <div><h1>Loading...</h1></div>;
+    if (isLoading) return <LoadingScreen/>;
     if (error) return <div><h1>Error: {error.message}</h1></div>;
     if (!objCurrentGrammar) return null;
 

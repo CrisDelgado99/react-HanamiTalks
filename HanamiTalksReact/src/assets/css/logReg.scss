@@ -108,6 +108,15 @@ input[type=text], input[type=password]{
     height: 2rem;
 }
 
+.button--register:active {
+    color: $black;
+    box-shadow: 0 0.2rem 0 0 $black;
+    transition: 0s top;
+    transition: 0.2s box-shadow;
+    position: relative;
+    top: 0.2rem;
+}
+
 .button--register{
     background-color: $secondary-color;
     transition: all 0.5s;
@@ -117,6 +126,15 @@ input[type=text], input[type=password]{
     background-color: $ppal-color;
 }
 
+.button--login:active {
+    color: $black;
+    box-shadow: 0 0.2rem 0 0 $black;
+    transition: 0s top;
+    transition: 0.2s box-shadow;
+    position: relative;
+    top: 0.2rem;
+}
+
 .button--login{
     background-color: $ppal-color;
     transition: all 0.5s;
@@ -124,6 +142,15 @@ input[type=text], input[type=password]{
 
 .button--login:hover{
     background-color: $secondary-color;
+}
+
+input[type=button]:active, input[type=submit]:active {
+    color: $black;
+    box-shadow: 0 0.2rem 0 0 $black;
+    transition: 0s top;
+    transition: 0.2s box-shadow;
+    position: relative;
+    top: 0.2rem;
 }
 
 input[type=button], input[type=submit]{
@@ -136,6 +163,7 @@ input[type=button], input[type=submit]{
 }
 
 .modal-background{
+    backdrop-filter: blur(0.2rem);
     position: fixed;
     top: 0;
     left: 0;

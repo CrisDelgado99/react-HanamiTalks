@@ -5,6 +5,7 @@ import "./../assets/css/kanji.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function KanjiTopic() {
     const { currentKanjiTopic } = useHanamiTalks();
@@ -58,9 +59,7 @@ export default function KanjiTopic() {
     // Handle loading, error, and data states
     if (isLoading)
         return (
-            <div>
-                <h1>Loading...</h1>
-            </div>
+            <LoadingScreen/>
         );
     if (error)
         return (

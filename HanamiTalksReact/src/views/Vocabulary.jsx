@@ -5,8 +5,8 @@ import "./../assets/css/list.css";
 import useSWR from "swr";
 import axiosClient from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
-import VocabularyForm from "../components/VocabularyForm";
 import AdminModify from "../components/AdminModify";
+import LoadingScreen from "../components/LoadingScreen";
 
 export default function Vocabulary() {
     const { currentVocabularyTopic, setCurrentVocabularyTopic } =
@@ -39,7 +39,7 @@ export default function Vocabulary() {
     //console.log("THIS IS THE SWR ERROR: " + error);
 
     // Handle loading, error, and data states
-    if (isLoading) return <div><h1>Loading...</h1></div>;
+    if (isLoading) return <LoadingScreen/>;
     if (error) return <div><h1>Error: {error.message}</h1></div>;
 
     // Assuming data is an array of topic titles with levels
